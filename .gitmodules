@@ -1,9 +1,12 @@
 [submodule ".zsh/prezto"]
 	path = .zsh/prezto
 	url = https://github.com/elken/prezto
+        branch = master
 [submodule ".vim"]
 	path = .vim
 	url = https://github.com/elken/.vim
+        branch = master
 [submodule "bin"]
 	path = bin
 	url = https://github.com/elken/bin
+        branch = master
