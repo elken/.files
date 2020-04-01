@@ -1,22 +1,35 @@
+SSH_ENV="$HOME/.ssh/environment"
+
+function start_agent {
+     rm -rf "${SSH_ENV}"
+     echo "Initialising new SSH agent..."
+     /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+     echo succeeded
+     chmod 600 "${SSH_ENV}"
+     . "${SSH_ENV}" > /dev/null
+     for i in ~/.ssh/*.pub; do
+        /usr/bin/ssh-add $(echo $i | cut -d. -f-2)
+     done
+}
+
+# Source SSH settings, if applicable
+
+if [ -f "${SSH_ENV}" ]; then
+     . "${SSH_ENV}" > /dev/null
+     #ps ${SSH_AGENT_PID} doesn't work under cywgin
+     ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+         start_agent;
+     }
+else     
+     start_agent;
+fi
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block, everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
-
-# Fuck XOFF
-stty ixany
-stty ixoff -ixon
-stty stop undef
-stty start undef
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zsh/prezto/init.zsh" ]]; then
@@ -55,29 +68,6 @@ eval "$(fasd --init zsh-hook zsh-ccomp auto)"
 eval `dircolors ~/.dircolors`
 
 setopt no_hist_verify
-SSH_ENV="$HOME/.ssh/environment"
-
-function start_agent {
-     rm -rf "${SSH_ENV}"
-     echo "Initialising new SSH agent..."
-     /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
-     echo succeeded
-     chmod 600 "${SSH_ENV}"
-     . "${SSH_ENV}" > /dev/null
-     /usr/bin/ssh-add ~/.ssh/id_rsa;
-}
-
-# Source SSH settings, if applicable
-
-if [ -f "${SSH_ENV}" ]; then
-     . "${SSH_ENV}" > /dev/null
-     #ps ${SSH_AGENT_PID} doesn't work under cywgin
-     ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
-         start_agent;
-     }
-else     
-     start_agent;
-fi
 
 vim_ins_mode="INSERT"
 vim_cmd_mode="NORMAL"

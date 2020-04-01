@@ -1,8 +1,8 @@
 ! Color scheme
 !#include ".Xresources.d/dark"
 !#include ".Xresources.d/light"
-#include ".Xresources.d/gruvbox"
-Xcursor.theme: DMZ-Black
+#include ".Xresources.d/nord"
+Xcursor.theme: Breeze_Obsidian
 Xcursor.size: 16
 
 ! Transparency
