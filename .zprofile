@@ -14,7 +14,8 @@ if [[ "$OSTYPE" == darwin* ]]; then
 fi
 
 if [[ "$TERM" == linux ]]; then
-    $HOME/bin/fbterm-bg $HOME/Pictures/1366293872__.jpg
+    $HOME/bin/fbterm-bg $HOME/Pictures/trianglify-export.png
+
     export TERM='fbterm'
 fi
 #

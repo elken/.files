@@ -6,7 +6,7 @@
 let g:hostname = system('echo -n $(hostname)')
 
 " Set vim dir (neovim uses xdg now)
-let g:vim_dir = "/etc/xdg/nvim/"
+let g:vim_dir = "~/.config/nvim"
 
 " Install vim-plug if it's missing
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -165,11 +165,11 @@ endif
 " Vim-plug                                                                      {{{
 call plug#begin("~/.vim/bundle")
 " Build functions                                                               {{{
-function! BuildYCM(info)
-    if a:info.status == 'installed' || a:info.force
-        !./install.py --clang-completer 
-    endif
-endfunction
+" function! BuildYCM(info)
+"     if a:info.status == 'installed' || a:info.force
+"         !./install.py --clang-completer 
+"     endif
+" endfunction
 
 function! BuildComposer(info)
   if a:info.status != 'unchanged' || a:info.force
@@ -190,16 +190,16 @@ Plug 'bling/vim-bufferline'
 Plug 'chrisbra/Colorizer'
 Plug 'chrisbra/NrrwRgn' 
 Plug 'chrisbra/unicode.vim'
-Plug 'chrisbra/vim-airline', { 'branch': 'feedkeys'}
+Plug 'chrisbra/vim-airline'
 Plug 'critiqjo/lldb.nvim'
 Plug 'critiqjo/vim-autoclose'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
+Plug 'joshdick/onedark.vim'
 Plug 'junegunn/goyo.vim' 
 Plug 'junegunn/rainbow_parentheses.vim' 
 Plug 'junegunn/vim-easy-align'
 Plug 'godlygeek/tabular'
-Plug 'ianks/gruvbox'
 Plug 'kopischke/unite-spell-suggest'
 Plug 'Matt-Deacalion/vim-systemd-syntax'
 Plug 'majutsushi/tagbar'
@@ -207,7 +207,7 @@ Plug 'mhinz/vim-startify'
 Plug 'moll/vim-bbye' 
 Plug 'nvie/vim-flake8'
 Plug 'plasticboy/vim-markdown'
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
+" Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic' 
 Plug 'Shougo/echodoc.vim' 
@@ -229,7 +229,7 @@ Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround' 
 Plug 'tpope/vim-vinegar' 
 Plug 'tpope/vim-unimpaired'
-Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+" Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 Plug 'vhdirk/vim-cmake', { 'for': 'cpp' }
 Plug 'vim-scripts/a.vim'
 Plug 'vim-scripts/auto_autoread'
@@ -246,10 +246,13 @@ call plug#end()
 " Color scheme and GUI                                                          {{{
 
 set background=dark
-let g:solarized_termcolors=256
+set termguicolors
+let g:onedark_termcolors=256
+let g:onedark_terminal_italics=1
 set t_co=256
 let g:enable_bold_font = 1
-colorscheme gruvbox
+colorscheme onedark
+hi Normal guibg=NONE ctermbg=NONE
 if has('gui_running')
     set guifont=Hasklig\ 8
     set go-=m
@@ -1142,4 +1145,5 @@ command! NyanMe call NyanMe()
 " - Devise a nice way to handle everything (projects, settings, etc)
 " It's been some months since I looked at this and I've still made 0 progress
 " Sometimes I amaze myself
+" Still haven't done any of these, many moons later...
 "}}}
