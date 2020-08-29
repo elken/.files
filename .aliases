@@ -23,6 +23,7 @@ alias ninja='cm ninja'
 alias workdone="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --author=elken"
 alias git='hub'
 alias workflow="g add .;gca;gp"
+alias ccm64='sudo ccm64'
 
 alias pacmir='yay -Syy'
 alias pacupg='yay -Syu'

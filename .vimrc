@@ -53,6 +53,12 @@ set linebreak
 set dictionary=/usr/share/dict/words
 set spellfile=~/.vim/custom-dictionary.utf-8.add
 set write
+" CoC settings
+set nobackup
+set nowritebackup
+set updatetime=300
+set shortmess+=c
+set signcolumn=yes
 
 
 " Don't try to highlight lines longer than 800 characters.
@@ -165,6 +171,11 @@ endif
 " Vim-plug                                                                      {{{
 call plug#begin("~/.vim/bundle")
 " Build functions                                                               {{{
+function! CocPlugins(info)
+    if a:info.status == 'install || a:info.force
+        :CocInstall coc-tsserver coc-vetur
+    endif
+endfunction
 " function! BuildYCM(info)
 "     if a:info.status == 'installed' || a:info.force
 "         !./install.py --clang-completer 
@@ -188,15 +199,12 @@ Plug 'benekastah/neomake'
 Plug 'vim-airline/vim-airline-themes' 
 Plug 'bling/vim-bufferline' 
 Plug 'chrisbra/Colorizer'
-Plug 'chrisbra/NrrwRgn' 
 Plug 'chrisbra/unicode.vim'
 Plug 'chrisbra/vim-airline'
-Plug 'critiqjo/lldb.nvim'
 Plug 'critiqjo/vim-autoclose'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
 Plug 'joshdick/onedark.vim'
-Plug 'junegunn/goyo.vim' 
 Plug 'junegunn/rainbow_parentheses.vim' 
 Plug 'junegunn/vim-easy-align'
 Plug 'godlygeek/tabular'
@@ -205,19 +213,15 @@ Plug 'Matt-Deacalion/vim-systemd-syntax'
 Plug 'majutsushi/tagbar'
 Plug 'mhinz/vim-startify' 
 Plug 'moll/vim-bbye' 
-Plug 'nvie/vim-flake8'
+Plug 'neoclide/coc.nvim', { 'branch': 'release', 'do': function('CocPlugins')}
 Plug 'plasticboy/vim-markdown'
-" Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic' 
 Plug 'Shougo/echodoc.vim' 
 Plug 'Shougo/unite.vim' 
 Plug 'Shougo/vimproc' , { 'do': 'make'}
-Plug 'simnalamburt/vim-mundo'
 Plug 'terryma/vim-multiple-cursors' 
-Plug 'tell-k/vim-autopep8'
 Plug 'tmhedberg/SimpylFold'
-Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'tpope/vim-commentary' 
 Plug 'tpope/vim-dispatch' 
 Plug 'tpope/vim-endwise' 
@@ -229,7 +233,6 @@ Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround' 
 Plug 'tpope/vim-vinegar' 
 Plug 'tpope/vim-unimpaired'
-" Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 Plug 'vhdirk/vim-cmake', { 'for': 'cpp' }
 Plug 'vim-scripts/a.vim'
 Plug 'vim-scripts/auto_autoread'
@@ -275,6 +278,115 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 " autopep8                                                                      {{{
 let g:autopep8_aggressive = 1
 let g:autopep8_disable_show_diff = 1
+" }}}
+" CoC                                                                           {{{
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder.
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Applying codeAction to the selected region.
+" Example: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Remap keys for applying codeAction to the current line.
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Introduce function text object
+" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
+xmap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap if <Plug>(coc-funcobj-i)
+omap af <Plug>(coc-funcobj-a)
+
+" Use <TAB> for selections ranges.
+" NOTE: Requires 'textDocument/selectionRange' support from the language server.
+" coc-tsserver, coc-python are the examples of servers that support it.
+nmap <silent> <TAB> <Plug>(coc-range-select)
+xmap <silent> <TAB> <Plug>(coc-range-select)
+
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocAction('format')
+
+" Add `:Fold` command to fold current buffer.
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" Add `:OR` command for organize imports of the current buffer.
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+" Add (Neo)Vim's native statusline support.
+" NOTE: Please see `:h coc-status` for integrations with external plugins that
+" provide custom statusline: lightline.vim, vim-airline.
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+" Mappings using CoCList:
+" Show all diagnostics.
+nnoremap <silent> <leader>da  :<C-u>CocList diagnostics<cr>
+" Manage extensions.
+nnoremap <silent> <leader>de  :<C-u>CocList extensions<cr>
+" Show commands.
+nnoremap <silent> <leader>dc  :<C-u>CocList commands<cr>
+" Find symbol of current document.
+nnoremap <silent> <leader>do  :<C-u>CocList outline<cr>
+" Search workspace symbols.
+nnoremap <silent> <leader>ds  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+nnoremap <silent> <leader>dj  :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent> <leader>dk  :<C-u>CocPrev<CR>
+" Resume latest coc list.
+nnoremap <silent> <leader>dp  :<C-u>CocListResume<CR>
 " }}}
 " color_highlight                                                               {{{
 nnoremap <F7> :ColorHighlight<CR>
