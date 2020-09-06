@@ -19,6 +19,7 @@ set nocompatible
 " Basic options                                                                 {{{
 " Pretty self-explanatory
 
+set encoding=utf8
 set regexpengine=2
 set nocursorbind
 set noscrollbind
@@ -173,7 +174,7 @@ call plug#begin("~/.vim/bundle")
 " Build functions                                                               {{{
 function! CocPlugins(info)
     if a:info.status == 'install || a:info.force
-        :CocInstall coc-tsserver coc-vetur
+        :CocInstall coc-tsserver coc-vetur coc-clangd coc-css coc-emmet coc-fsharp coc-git coc-tailwindcss
     endif
 endfunction
 " function! BuildYCM(info)
@@ -257,7 +258,7 @@ let g:enable_bold_font = 1
 colorscheme onedark
 hi Normal guibg=NONE ctermbg=NONE
 if has('gui_running')
-    set guifont=Hasklig\ 8
+    set guifont=JetBrains\ Mono\ 8
     set go-=m
     set go-=T
     set go-=r
