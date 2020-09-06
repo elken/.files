@@ -25,7 +25,7 @@ alias git='hub'
 alias workflow="g add .;gca;gp"
 alias ccm64='sudo ccm64'
 
-alias pacmir='yay -Syy'
-alias pacupg='yay -Syu'
-alias pacin='yay -S'
-alias pacrem='yay -Rscn'
+alias pacmir='_ apt update'
+alias pacupg='_ apt upgrade'
+alias pacin='_ apt install'
+alias pacrem='_ apt remove'

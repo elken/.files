@@ -1122,6 +1122,8 @@ endfunction
 " }}}
 " nvim stuff                                                                    {{{
 if has('nvim')
+    let g:loaded_python_provider = 0
+    let g:python3_host_prog = '~/.vim/venv/bin/python'
     tnoremap <Esc> <C-\><C-n>
     tnoremap <C-h> <C-\><C-n><C-w>h
     tnoremap <C-j> <C-\><C-n><C-w>j
