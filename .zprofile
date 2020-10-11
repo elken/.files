@@ -22,8 +22,8 @@ fi
 # Editors
 #
 
-export EDITOR='nvim'
-export VISUAL='code'
+export EDITOR='emacsclient -t'
+export VISUAL='emacsclient -c -a emacs'
 export PAGER='less'
 
 #
@@ -31,7 +31,7 @@ export PAGER='less'
 #
 
 if [[ -z "$LANG" ]]; then
-  export LANG='en_US.UTF-8'
+  export LANG='en_GB.UTF-8'
 fi
 
 #
@@ -55,6 +55,8 @@ path=(
   $HOME/bin
   $HOME/.local/bin
   $HOME/.config/yarn/global/node_modules/.bin
+  $HOME/.dwm/bin
+  $HOME/.dotnet/tools
   $path
 )
 

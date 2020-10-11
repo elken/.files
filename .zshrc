@@ -99,10 +99,5 @@ for i in agnoster.zsh k.sh notifyosd.zsh; do
     [ -e $HOME/.zsh/$i ] && . $HOME/.zsh/$i
 done
 
-# Add rbenv to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$HOME/.rbenv/bin:$PATH"
-
-eval "$(rbenv init -)"
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
