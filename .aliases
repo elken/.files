@@ -18,6 +18,7 @@ alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 alias cmake='cm cmake'
 alias ninja='cm ninja'
+alias fd='fdfind'
 
 # Git
 alias workdone="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --author=elken"

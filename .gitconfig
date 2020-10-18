@@ -6,7 +6,6 @@
 [github]
 	user = elken
 [core]
-	editor = emacsclient -t
 	excludefile = /home/elken/.gitignore
 	filemode = false
 [alias]
