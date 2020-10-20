@@ -22,7 +22,7 @@ fi
 # Editors
 #
 
-export EDITOR='emacsclient -t'
+export EDITOR='emacsclient -c -t'
 export VISUAL='emacsclient -c -a emacs'
 export PAGER='less'
 
@@ -57,6 +57,7 @@ path=(
   $HOME/.config/yarn/global/node_modules/.bin
   $HOME/.dwm/bin
   $HOME/.dotnet/tools
+  $HOME/spicetify-cli
   $path
 )
 
