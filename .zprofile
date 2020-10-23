@@ -13,16 +13,11 @@ if [[ "$OSTYPE" == darwin* ]]; then
   export BROWSER='open'
 fi
 
-if [[ "$TERM" == linux ]]; then
-    $HOME/bin/fbterm-bg $HOME/Pictures/trianglify-export.png
-
-    export TERM='fbterm'
-fi
 #
 # Editors
 #
 
-export EDITOR='emacsclient -c -t'
+export EDITOR='emacsclient -c -t -a emacs'
 export VISUAL='emacsclient -c -a emacs'
 export PAGER='less'
 
