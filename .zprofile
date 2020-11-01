@@ -46,6 +46,13 @@ typeset -gU cdpath fpath mailpath path
 #   $cdpath
 # )
 
+if [[ "$OSTYPE" == darwin* ]]; then
+    path=(
+        /usr/local/opt/coreutils/libexec/gnubin
+        $path
+    )
+fi
+
 # Set the list of directories that Zsh searches for programs.
 path=(
   $HOME/.emacs.d/bin
