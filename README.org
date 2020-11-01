@@ -1,0 +1,9 @@
+#+TITLE: Dotfiles
+
+[[file:.assets/banner.png]]
+
+(icon courtesy of https://github.com/eccentric-j/doom-icon)
+
+My (most used) dotfiles including a [[file:.config/yadm/bootstrap][Setup script]] because developers are lazy. Usually centered around a flavour of the month theme which is currently [[https://nordtheme.com][Nord]].
+
+I am also considering turning this into a literate setup, but for /now/ it'll do.
