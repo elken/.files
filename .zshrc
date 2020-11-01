@@ -60,6 +60,7 @@ export MSF_DATABASE_CONFIG="/home/elken/.msf4/database.yml"
 export ZSH_AUTOSUGGEST_USE_ASYNC=1
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 export PULSE_LATENCY_MSEC=120
+export QT_QPA_PLATFORMTHEME=qt5ct
 setopt no_hist_verify
 setopt HIST_IGNORE_DUPS
 
