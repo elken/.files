@@ -127,5 +127,8 @@ fi
 status_msg "Getting Doom ready"
 doom sync && doom build
 
-status_msg "Enabling Emacs server"
-systemctl --user enable --now emacs.service
+
+if [ "$system" = "Linux" ]; then
+    status_msg "Enabling Emacs server"
+    systemctl --user enable --now emacs.service
+fi
