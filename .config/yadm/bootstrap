@@ -127,8 +127,19 @@ fi
 status_msg "Getting Doom ready"
 doom sync && doom build
 
-
 if [ "$system" = "Linux" ]; then
     status_msg "Enabling Emacs server"
     systemctl --user enable --now emacs.service
+
+    status_msg "Adding exwm desktop file"
+    sudo cat <<EOF > /usr/share/xsessions/exwm.desktop
+    [Desktop Entry]
+    Name=EXWM
+    Comment=Emacs Window Manager
+    Exec=/home/elken/.doom.d/exwm/start.sh
+    TryExec=sh
+    Type=Application
+    DesktopNames=exwm
+    Icon=/home/elken/Pictures/doom_icon.png
+EOF
 fi
