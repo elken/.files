@@ -10,12 +10,3 @@
 	path = bin
 	url = git@github.com:elken/bin
         branch = master
-[submodule "git@github.com:elken/.doom.d"]
-	path = git@github.com:elken/.doom.d
-	url = /home/elken/.doom.d
-[submodule ".doom.d"]
-	path = .doom.d
-	url = git@github.com:elken/.doom.d
-[submodule ".emacs.d"]
-	path = .emacs.d
-	url = https://github.com/hlissner/doom-emacs
