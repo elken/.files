@@ -18,7 +18,7 @@ fi
 #
 
 export EDITOR='emacsclient -c -a emacs'
-export VISUAL='emacs'
+export VISUAL='emacsclient -nw'
 export PAGER='less'
 
 #
@@ -50,6 +50,8 @@ fi
 
 # Set the list of directories that Zsh searches for programs.
 path=(
+  $HOME/.composer/vendor/bin
+  $HOME/.emacs.doom/bin
   $HOME/.emacs.d/bin
   $HOME/.cargo/bin
   /usr/local/{bin,sbin}

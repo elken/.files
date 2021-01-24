@@ -50,24 +50,16 @@ unset GREP_OPTIONS
 source ~/.zprofile
 source $HOME/.aliases
 export PANEL_FIFO="/tmp/panel-fifo"
-export GOPATH="$HOME/go"
 export CHROOT="$HOME/chroot"
-export NVIM_TUI_ENABLE_TRUE_COLOR=1
-export DEFAULT_VPN="DK"
-export NVIM_LISTEN_ADDRESS="/tmp/nvimsocket"
-export RUST_SRC_PATH="/home/elken/b/rust/src"
-export MSF_DATABASE_CONFIG="/home/elken/.msf4/database.yml"
 export ZSH_AUTOSUGGEST_USE_ASYNC=1
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 export PULSE_LATENCY_MSEC=120
-export QT_QPA_PLATFORMTHEME=qt5ct
 setopt no_hist_verify
 setopt HIST_IGNORE_DUPS
 
 set ZLE_RPROPT_INDENT=1
 
 eval "$(fasd --init zsh-hook zsh-ccomp auto)"
-
 
 eval `dircolors ~/.dircolors`
 
@@ -102,3 +94,5 @@ done
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+[[ "$INSIDE_EMACS" = 'vterm' ]] && . ~/.zsh/vterm.zsh

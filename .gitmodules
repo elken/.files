@@ -1,12 +1,12 @@
 [submodule ".zsh/prezto"]
 	path = .zsh/prezto
 	url = git@github.com:elken/prezto
-        branch = master
-[submodule ".vim"]
-	path = .vim
-	url = git@github.com:elken/.vim
-        branch = master
 [submodule "bin"]
 	path = bin
 	url = git@github.com:elken/bin
-        branch = master
+[submodule ".doom.d"]
+	path = .doom.d
+	url = git@github.com:elken/.doom.d
+[submodule ".emacs.d"]
+	path = .emacs.d
+	url = https://github.com/hlissner/doom-emacs

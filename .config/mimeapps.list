@@ -79,3 +79,5 @@ image/x-icns=org.gnome.eog.desktop;
 audio/flac=spotify.desktop;
 application/x-cd-image=gnome-disk-image-writer.desktop;
 application/pdf=emacs.desktop;
+text/plain=emacs.desktop;
+application/x-ms-dos-executable=wine.desktop;
