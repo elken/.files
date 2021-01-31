@@ -22,7 +22,7 @@ zstyle ':prezto:*:*' color 'yes'
 # zstyle ':prezto:load' zfunction 'zargs' 'zmv'
 
 # Add additional directories to load prezto modules from
-zstyle ':prezto:load' pmodule-dirs $HOME/.zsh/prezto
+zstyle ':prezto:load' pmodule-dirs $HOME/.zprezto
 
 # Set the Prezto modules to load (browse modules).
 # The order matters.
