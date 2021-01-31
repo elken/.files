@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env zsh
 
 colorBl="\e[38;5;0m"
 colorR="\e[38;5;1m"
@@ -13,32 +13,38 @@ bold_reset="\033[0m"
 reset="\e[0m"
 
 proceed() {
-    Y="`gettext pacman Y`"; y="$(echo $Y | tr '[:upper:]' '[:lower:]')";
-    N="`gettext pacman N`"; n="$(echo $N | tr '[:upper:]' '[:lower:]')"
-    case "$1" in
-        y)  printf "${colorB}%s${reset} ${colorW}%s${reset}" $"$2 [Y/n] "
-            read -n 1 answer
-            echo
-            case $answer in
-                $Y|$y|'') return 0;;
-                *) return 1;;
-            esac;;
-        n)  printf "${colorB}%s${reset} ${colorW}%s${reset}" $"$2 [y/N] "
-            read -n 1 answer
-            echo
-            case $answer in
-                $N|$n|'') return 0;;
-                *) return 1;;
-            esac;;
-    esac
+	Y="$(gettext pacman Y)"
+	y="$(echo $Y | tr '[:upper:]' '[:lower:]')"
+	N="$(gettext pacman N)"
+	n="$(echo $N | tr '[:upper:]' '[:lower:]')"
+	case "$1" in
+	y)
+		printf "${colorB}%s${reset} ${colorW}%s${reset}" $"$2 [Y/n] "
+		read -n 1 answer
+		echo
+		case $answer in
+		$Y | $y | '') return 0 ;;
+		*) return 1 ;;
+		esac
+		;;
+	n)
+		printf "${colorB}%s${reset} ${colorW}%s${reset}" $"$2 [y/N] "
+		read -n 1 answer
+		echo
+		case $answer in
+		$N | $n | '') return 0 ;;
+		*) return 1 ;;
+		esac
+		;;
+	esac
 }
 
 error_msg() {
-    printf "${colorR}Error: ${colorW}%s${reset}\n" "${1}"
+	printf "${colorR}Error: ${colorW}%s${reset}\n" "${1}"
 }
 
 status_msg() {
-    printf "${colorG}%s${reset}\n" "${1}"
+	printf "${colorG}%s${reset}\n" "${1}"
 }
 
 echo -e "${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM"
@@ -106,33 +112,34 @@ system=$(uname -s)
 
 printf "${colorB}Looks like ${colorW}${bold}${system}${bold_reset}${reset}\n"
 
-if [ "$system" = "Darwin" ]; then
-    if ! command -v brew >/dev/null 2>&1; then
-        status_msg "Homebrew not installed, installing now"
-        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    fi
+status_msg "Sourcing shell config"
+source $HOME/.zprofile
 
-    if [ -f "$HOME/.Brewfile" ]; then
-        echo "Install homebrew packages"
-        brew bundle --global
-    fi
+if [ "$system" = "Darwin" ]; then
+	if ! command -v brew >/dev/null 2>&1; then
+		status_msg "Homebrew not installed, installing now"
+		/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	fi
+
+	if [ -f "$HOME/.Brewfile" ]; then
+		echo "Install homebrew packages"
+		brew bundle --global
+	fi
 fi
 
 if ! command -v doom >/dev/null 2>&1; then
-    error_msg "Not ready to unleash hell."
-    printf "Add ${bold}doom${bold_reset} to path \n(Current value: ${PATH})\n"
-    exit 1
+	error_msg "Not ready to unleash hell."
+	printf "Add ${bold}doom${bold_reset} to path \n(Current value: ${PATH})\n"
+	exit 1
 fi
 
 status_msg "Getting Doom ready"
 doom sync && doom build
 
 if [ "$system" = "Linux" ]; then
-    status_msg "Enabling Emacs server"
-    systemctl --user enable --now emacs.service
-
-    status_msg "Adding exwm desktop file"
-    sudo cat <<EOF > /usr/share/xsessions/exwm.desktop
+	if [ -f /usr/share/xsessions ]; then
+		status_msg "Adding exwm desktop file"
+		sudo cat <<EOF >/usr/share/xsessions/exwm.desktop
     [Desktop Entry]
     Name=EXWM
     Comment=Emacs Window Manager
@@ -142,4 +149,5 @@ if [ "$system" = "Linux" ]; then
     DesktopNames=exwm
     Icon=/home/elken/Pictures/doom_icon.png
 EOF
+	fi
 fi
