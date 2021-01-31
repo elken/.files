@@ -4,12 +4,12 @@ function start_agent {
      setopt null_glob
      rm -rf "${SSH_ENV}"
      echo "Initialising new SSH agent..."
-     /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+     ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
      echo succeeded
      chmod 600 "${SSH_ENV}"
      . "${SSH_ENV}" > /dev/null
      for i in ~/.ssh/*.pub; do
-        /usr/bin/ssh-add $(echo $i | cut -d. -f-2)
+        ssh-add $(echo $i | cut -d. -f-2)
      done
 }
 
@@ -33,8 +33,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zsh/prezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zsh/prezto/init.zsh"
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
 # Command-not-found sucks
