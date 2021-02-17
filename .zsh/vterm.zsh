@@ -27,5 +27,10 @@ find_file() {
     vterm_cmd find-file "$(realpath "${@:-.}")"
 }
 
+magit_current(){
+    vterm_cmd magit-status "$(realpath "${@:-.}")"
+}
+
 alias clear='vterm_printf "51;Evterm-clear-scrollback";tput clear'
 alias e='find_file'
+alias mg='magit_current'

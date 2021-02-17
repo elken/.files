@@ -96,3 +96,5 @@ done
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 [[ "$INSIDE_EMACS" = 'vterm' ]] && . ~/.zsh/vterm.zsh
+
+[ -e ~/.guix-profile ] && . ~/.guix-profile/etc/profile
