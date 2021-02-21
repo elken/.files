@@ -100,11 +100,17 @@ echo -e "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM${colorW}*\$${colorBl}MMMMM
 echo -e "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM${reset}"
 printf "${bold}Logo asciified by me, original: https://github.com/eccentric-j/doom-icon\n${bold_reset}"
 
-status_msg "Getting all submodules"
-yadm submodule update --init --recursive
+status_msg "Getting all dependencies"
+git clone https://github.com/elken/.doom.d ~/.doom.d
+git clone https://github.com/hlissner/doom-emacs ~/.emacs.doom
+git clone https://github.com/plexus/chemacs2 ~/.emacs.d
+git clone --recursive https://github.com/sorin-ionescu/prezto ~/.zprezto
 
 status_msg "Moving to SSH"
 yadm remote set-url origin "git@github.com:elken/.files"
+pushd ~/.doom.d
+git remote set-url origin "git@github.com:elken/.doom.d"
+popd
 
 status_msg "Checking OS"
 
