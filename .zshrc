@@ -88,7 +88,7 @@ function TRAPINT() {
 
 }
 
-for i in agnoster.zsh k.sh notifyosd.zsh; do
+for i in artisan.zsh agnoster.zsh k.sh notifyosd.zsh; do
     [ -e $HOME/.zsh/$i ] && . $HOME/.zsh/$i
 done
 

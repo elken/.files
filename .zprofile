@@ -44,12 +44,16 @@ typeset -gU cdpath fpath mailpath path
 if [[ "$OSTYPE" == darwin* ]]; then
     path=(
         /usr/local/opt/coreutils/libexec/gnubin
+        /opt/homebrew/opt/coreutils/libexec/gnubin
+        /Users/elken/flutter/sdk/bin
         $path
     )
+    export GPG_TTY=$(tty)
 fi
 
 # Set the list of directories that Zsh searches for programs.
 path=(
+  /usr/local/share/dotnet
   $HOME/.composer/vendor/bin
   $HOME/.emacs.doom/bin
   $HOME/.emacs.d/bin
@@ -117,3 +121,4 @@ function cm()
     set -o pipefail
     $@ 2>&1  | colout -t cmake | colout -t g++
 }
+eval "$(/opt/homebrew/bin/brew shellenv)"
