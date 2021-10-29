@@ -47,7 +47,7 @@ unset GREP_OPTIONS
 # autoload -Uz promptinit
 # promptinit
 # prompt pure
-source ~/.zprofile
+#source ~/.zprofile
 source $HOME/.aliases
 export PANEL_FIFO="/tmp/panel-fifo"
 export CHROOT="$HOME/chroot"
@@ -59,9 +59,8 @@ setopt HIST_IGNORE_DUPS
 
 set ZLE_RPROPT_INDENT=1
 
-eval "$(fasd --init zsh-hook zsh-ccomp auto)"
-
 eval `dircolors ~/.dircolors`
+eval "$(fasd --init zsh-hook zsh-ccomp auto)"
 
 setopt no_hist_verify
 
@@ -88,7 +87,7 @@ function TRAPINT() {
 
 }
 
-for i in artisan.zsh agnoster.zsh k.sh notifyosd.zsh; do
+for i in artisan.zsh emacs.zsh agnoster.zsh k.sh notifyosd.zsh; do
     [ -e $HOME/.zsh/$i ] && . $HOME/.zsh/$i
 done
 
@@ -98,3 +97,21 @@ done
 [[ "$INSIDE_EMACS" = 'vterm' ]] && . ~/.zsh/vterm.zsh
 
 [ -e ~/.guix-profile ] && . ~/.guix-profile/etc/profile
+
+# FZF
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='fd --type f'
+export FZF_DEFAULT_OPTS="--height=40% --preview='bat {}' --preview-window=right:60%:wrap"
+
+# NVM
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"

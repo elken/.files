@@ -1,8 +1,8 @@
 [user]
-	name = Ellis Kenyő
+	name = Ellis Kenyo
 	email = me@elken.dev
 [push]
-	default = simple
+	default = current
 [github]
 	user = elken
 [core]
@@ -10,7 +10,15 @@
 	filemode = false
 [alias]
       pu = !"git fetch origin -v; git fetch upstream -v; git merge upstream/master"
-[hub]
-	protocol = ssh
 [recieve]
         denyCurrentBranch = ignore
+[gpg]
+	program = /opt/homebrew/bin/gpg
+[commit]
+	gpgSign = true
+[tag]
+	forceSignAnnotated = true
+[init]
+	defaultBranch = "master"
+[diff "org"]
+  xfuncname = "^(\\*+ +.*)$"

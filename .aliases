@@ -16,3 +16,5 @@ alias pbpaste='xsel --clipboard --output'
 alias workdone="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --author=elken"
 alias workflow="g add .;gca;gp"
 alias ccm64='sudo ccm64'
+alias dircolors='gdircolors'
+alias art='artisan'

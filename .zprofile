@@ -17,8 +17,8 @@ fi
 # Editors
 #
 
-export EDITOR='emacsclient -nw'
-export VISUAL='emacsclient -c -a emacs'
+export VISUAL='nvim'
+export EDITOR='nvim'
 export PAGER='less'
 
 #
@@ -41,34 +41,43 @@ typeset -gU cdpath fpath mailpath path
 #   $cdpath
 # )
 
-if [[ "$OSTYPE" == darwin* ]]; then
-    path=(
-        /usr/local/opt/coreutils/libexec/gnubin
-        /opt/homebrew/opt/coreutils/libexec/gnubin
-        /Users/elken/flutter/sdk/bin
-        $path
-    )
-    export GPG_TTY=$(tty)
+if [[ "$INSIDE_EMACS" != 'vterm' ]]; then
+  if [[ "$OSTYPE" == darwin* ]]; then
+      path=(
+          /usr/local/opt/coreutils/libexec/gnubin
+          /opt/homebrew/opt/coreutils/libexec/gnubin
+          /opt/homebrew/opt/openjdk/bin
+          /Users/elken/flutter/sdk/bin
+          /opt/homebrew/bin
+          $path
+      )
+      export GPG_TTY=$(tty)
+  fi
+
+  # Set the list of directories that Zsh searches for programs.
+  path=(
+    /usr/local/share/dotnet
+    $HOME/.composer/vendor/bin
+    $HOME/.emacs.doom/bin
+    $HOME/.emacs.d/bin
+    $HOME/.cargo/bin
+    $HOME/bin
+    $HOME/.local/bin
+    $HOME/.config/yarn/global/node_modules/.bin
+    $HOME/.dwm/bin
+    $HOME/.dotnet/tools
+    $HOME/spicetify-cli
+    $HOME/.luarocks/bin
+    $HOME/build/phpactor/bin
+    $HOME/go/bin
+    /usr/local/{bin,sbin}
+    /usr/bin
+    $path
+  )
+
+  export GPG_TTY=$(tty)
+
 fi
-
-# Set the list of directories that Zsh searches for programs.
-path=(
-  /usr/local/share/dotnet
-  $HOME/.composer/vendor/bin
-  $HOME/.emacs.doom/bin
-  $HOME/.emacs.d/bin
-  $HOME/.cargo/bin
-  /usr/local/{bin,sbin}
-  /usr/bin
-  $HOME/bin
-  $HOME/.local/bin
-  $HOME/.config/yarn/global/node_modules/.bin
-  $HOME/.dwm/bin
-  $HOME/.dotnet/tools
-  $HOME/spicetify-cli
-  $path
-)
-
 #
 # Less
 #
@@ -121,4 +130,18 @@ function cm()
     set -o pipefail
     $@ 2>&1  | colout -t cmake | colout -t g++
 }
-eval "$(/opt/homebrew/bin/brew shellenv)"
+
+function sail() {
+    dir=.
+    until [ $dir -ef / ]; do
+        if [ -f "$dir/artisan" ]; then
+	    cd $dir
+	    ./vendor/bin/sail $*
+	    cd - >/dev/null 2>&1
+	fi
+
+	dir+=/..
+    done
+    return 1
+
+}
