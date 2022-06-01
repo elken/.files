@@ -70,6 +70,7 @@ if [[ "$INSIDE_EMACS" != 'vterm' ]]; then
     $HOME/.luarocks/bin
     $HOME/build/phpactor/bin
     $HOME/go/bin
+    $HOME/flutter/bin
     /usr/local/{bin,sbin}
     /usr/bin
     $path

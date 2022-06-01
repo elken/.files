@@ -13,4 +13,14 @@
       </metadata>
     </info>
   </bookmark>
+  <bookmark href="ftps://atlas.usbx.me/" added="2021-12-17T07:37:05.458131Z" modified="2022-04-16T18:56:26.605108Z" visited="2022-04-16T18:56:26.605107Z">
+    <title>/ on atlas.usbx.me</title>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2022-04-16T18:56:26.605108Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
 </xbel>

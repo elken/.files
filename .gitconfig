@@ -1,6 +1,7 @@
 [user]
 	name = Ellis Kenyo
 	email = me@elken.dev
+    signingKey = D1E8046111A7026F2FED99FA298BE5D997EBAA02
 [push]
 	default = current
 [github]
@@ -12,8 +13,6 @@
       pu = !"git fetch origin -v; git fetch upstream -v; git merge upstream/master"
 [recieve]
         denyCurrentBranch = ignore
-[gpg]
-	program = /opt/homebrew/bin/gpg
 [commit]
 	gpgSign = true
 [tag]

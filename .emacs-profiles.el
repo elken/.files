@@ -1,4 +1,5 @@
 (("default" . ((user-emacs-directory . "~/.emacs.doom")))
  ("me"      . ((user-emacs-directory . "~/.emacs.me")))
+ ("test"      . ((user-emacs-directory . "~/.emacs.test")))
  ("work"    . ((user-emacs-directory . "~/.emacs.doom.work")
                (env . (("DOOMDIR" . "~/.doom.work"))))))

@@ -54,6 +54,7 @@ export CHROOT="$HOME/chroot"
 export ZSH_AUTOSUGGEST_USE_ASYNC=1
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 export PULSE_LATENCY_MSEC=120
+export WEBKIT_FORCE_SANDBOX=0
 setopt no_hist_verify
 setopt HIST_IGNORE_DUPS
 
@@ -111,7 +112,10 @@ export NVM_DIR="$HOME/.nvm"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+# eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+# opam configuration
+[[ ! -r /home/elken/.opam/opam-init/init.zsh ]] || source /home/elken/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null

@@ -41,6 +41,8 @@ image/svg+xml=org.gnome.eog.desktop
 image/svg+xml-compressed=org.gnome.eog.desktop
 image/vnd.wap.wbmp=org.gnome.eog.desktop
 image/x-icns=org.gnome.eog.desktop
+x-scheme-handler/mailto=org.gnome.Evolution.desktop
+x-scheme-handler/msteams=teams.desktop
 
 [Added Associations]
 x-scheme-handler/http=firefox.desktop;
@@ -58,7 +60,7 @@ image/bmp=org.gnome.eog.desktop;
 image/gif=org.gnome.eog.desktop;
 image/jpg=org.gnome.eog.desktop;
 image/pjpeg=org.gnome.eog.desktop;
-image/png=gimp.desktop;org.gnome.eog.desktop;
+image/png=org.kde.okular.desktop;gimp.desktop;org.gnome.eog.desktop;
 image/tiff=org.gnome.eog.desktop;
 image/x-bmp=org.gnome.eog.desktop;
 image/x-gray=org.gnome.eog.desktop;
@@ -81,3 +83,7 @@ application/x-cd-image=gnome-disk-image-writer.desktop;
 application/pdf=emacs.desktop;
 text/plain=emacs.desktop;
 application/x-ms-dos-executable=wine.desktop;
+x-scheme-handler/sms=org.gnome.Shell.Extensions.GSConnect.desktop;
+x-scheme-handler/tel=org.gnome.Shell.Extensions.GSConnect.desktop;
+x-scheme-handler/mailto=org.gnome.Evolution.desktop;
+application/x-wine-extension-ini=emacsclient.desktop;
