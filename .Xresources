@@ -1,8 +1,8 @@
 ! Color scheme
 !#include ".Xresources.d/dark"
 !#include ".Xresources.d/light"
-#include ".Xresources.d/gruvbox"
-!#include ".Xresources.d/nord"
+! #include ".Xresources.d/gruvbox"
+#include ".Xresources.d/nord"
 Xcursor.theme: vimix-cursors
 Xcursor.size: 16
 

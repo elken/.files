@@ -7,26 +7,26 @@
 </defs>
 <g fill="none" stroke="black" stroke-width="1" fill-rule="evenodd" stroke-linecap="square" stroke-linejoin="bevel" >
 
-<g fill="#000000" fill-opacity="1" stroke="none" transform="matrix(3.125,0,0,3.125,-790.625,676.993)"
-font-family="Montserrat" font-size="9" font-weight="400" font-style="normal" 
-opacity="0" >
-<rect x="253" y="-216.638" width="16" height="16"/>
-</g>
-
-<g fill="#f1ae1b" fill-opacity="1" stroke="none" transform="matrix(3.125,0,0,3.125,-12.5,-3226.13)"
-font-family="Montserrat" font-size="9" font-weight="400" font-style="normal" 
+<g fill="#232831" fill-opacity="1" stroke="none" transform="matrix(0.0548323,0,0,-0.0548325,-3.56137,49.4247)"
+font-family="Noto Sans" font-size="10" font-weight="400" font-style="normal" 
 >
-<path vector-effect="none" fill-rule="evenodd" d="M12.0001,1047.36 C15.866,1047.36 19,1044.23 19,1040.36 C19,1036.5 15.866,1033.36 12.0001,1033.36 C8.13402,1033.36 5,1036.5 5,1040.36 C5,1044.23 8.13402,1047.36 12.0001,1047.36 "/>
+<path vector-effect="none" fill-rule="evenodd" d="M520.886,-10.4927 C772.692,-10.4927 976.822,193.637 976.822,445.443 C976.822,697.245 772.692,901.375 520.886,901.375 C269.08,901.375 64.9502,697.245 64.9502,445.443 C64.9502,193.637 269.08,-10.4927 520.886,-10.4927 "/>
 </g>
 
-<g fill="#000000" fill-opacity="1" stroke="none" transform="matrix(3.125,0,0,3.125,-12.5,-3226.13)"
-font-family="Montserrat" font-size="9" font-weight="400" font-style="normal" 
-opacity="0.5" >
-<path vector-effect="none" fill-rule="evenodd" d="M8,1040.36 C8,1039.81 8.44772,1039.36 9,1039.36 L15,1039.36 C15.5523,1039.36 16,1039.81 16,1040.36 C16,1040.91 15.5523,1041.36 15,1041.36 L9,1041.36 C8.44772,1041.36 8,1040.91 8,1040.36 "/>
+<g fill="#ebcb8b" fill-opacity="1" stroke="none" transform="matrix(0.0548323,0,0,-0.0548325,-3.56137,49.4247)"
+font-family="Noto Sans" font-size="10" font-weight="400" font-style="normal" 
+>
+<path vector-effect="none" fill-rule="evenodd" d="M521.337,69.0601 C725.929,69.0601 891.782,234.915 891.782,439.51 C891.782,644.101 725.929,809.955 521.337,809.955 C316.745,809.955 150.887,644.101 150.887,439.51 C150.887,234.915 316.745,69.0601 521.337,69.0601 "/>
+</g>
+
+<g fill="#232831" fill-opacity="1" stroke="none" transform="matrix(0.0548323,0,0,-0.0548325,-3.56137,49.4247)"
+font-family="Noto Sans" font-size="10" font-weight="400" font-style="normal" 
+>
+<path vector-effect="none" fill-rule="evenodd" d="M273.795,467.757 L746.526,467.757 C764.824,467.757 779.791,452.794 779.791,434.493 L779.791,433.616 C779.791,415.315 764.824,400.351 746.526,400.351 L273.795,400.351 C255.497,400.351 240.531,415.315 240.531,433.616 L240.531,434.493 C240.531,452.794 255.497,467.757 273.795,467.757 "/>
 </g>
 
 <g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
-font-family="Montserrat" font-size="9" font-weight="400" font-style="normal" 
+font-family="Noto Sans" font-size="10" font-weight="400" font-style="normal" 
 >
 </g>
 </g>

@@ -1,10 +1,12 @@
+#!/usr/bin/env zsh
+
 # commands to ignore
-cmdignore=(htop tmux top vim vimserv nvim emacs e v)
+cmdignore=(ncdu htop tmux top vim vimserv nvim emacs e v)
 
 # set gt 0 to enable GNU units for time results
 gnuunits=0
 
-# end and compare timer, notify-send if needed
+# end and compare timer, notify if needed
 function notifyosd-precmd() {
     retval=$?
     if [[ ${cmdignore[(r)$cmd_basename]} == $cmd_basename ]]; then
@@ -26,7 +28,12 @@ function notifyosd-precmd() {
             else
                 cmd_time="$cmd_secs seconds"
             fi
-            notify-send -i utilities-terminal --hint=int:transient:1 "$cmd_basename completed $cmdstat" "\"$cmd\" took $cmd_time"
+
+            if [[ "$OSTYPE" == darwin* ]]; then
+                terminal-notifier -message "'$cmd' took $cmd_time" -subtitle "$cmd_basename completed $cmdstat"
+            else
+                notify-send -i utilities-terminal --hint=int:transient:1 "$cmd_basename completed $cmdstat" "\"$cmd\" took $cmd_time"
+            fi
         fi
         unset cmd
     fi
@@ -38,7 +45,7 @@ precmd_functions+=( notifyosd-precmd )
 # get command name and start the timer
 function notifyosd-preexec() {
     cmd=$1
-    cmd_basename=${${cmd:s/sudo //}[(ws: :)1]} 
+    cmd_basename=${${cmd:s/sudo //}[(ws: :)1]}
     cmd_start=`date +%s`
 }
 

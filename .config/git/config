@@ -1,0 +1,40 @@
+[alias]
+	br = "branch"
+	cl = "clone"
+	co = "checkout"
+
+[commit]
+	gpgSign = false
+
+[core]
+	pager = "delta"
+
+[delta]
+	line-numbers = true
+	side-by-side = true
+	syntax-theme = "Nord"
+
+[diff "org"]
+	xfuncname = "^(\\*+ +.*)$"
+
+[github]
+	user = "elken"
+
+[init]
+	defaultBranch = "master"
+	templatedir = "/home/elken/.config/git/templates"
+
+[interactive]
+	diffFilter = "delta --color-only"
+
+[tag]
+	gpgSign = false
+
+[url "https://invent.kde.org/"]
+	insteadOf = "kde:"
+	pushInsteadOf = "kde:"
+
+[user]
+	email = "me@elken.dev"
+	name = "Ellis Kenyő"
+	signingKey = "298BE5D997EBAA02"

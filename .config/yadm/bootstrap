@@ -18,24 +18,24 @@ proceed() {
 	N="$(gettext pacman N)"
 	n="$(echo $N | tr '[:upper:]' '[:lower:]')"
 	case "$1" in
-	y)
-		printf "${colorB}%s${reset} ${colorW}%s${reset}" $"$2 [Y/n] "
-		read -n 1 answer
-		echo
-		case $answer in
-		$Y | $y | '') return 0 ;;
-		*) return 1 ;;
-		esac
-		;;
-	n)
-		printf "${colorB}%s${reset} ${colorW}%s${reset}" $"$2 [y/N] "
-		read -n 1 answer
-		echo
-		case $answer in
-		$N | $n | '') return 0 ;;
-		*) return 1 ;;
-		esac
-		;;
+		y)
+			printf "${colorB}%s${reset} ${colorW}%s${reset}" $"$2 [Y/n] "
+			read -n 1 answer
+			echo
+			case $answer in
+				$Y | $y | '') return 0 ;;
+				*) return 1 ;;
+			esac
+			;;
+		n)
+			printf "${colorB}%s${reset} ${colorW}%s${reset}" $"$2 [y/N] "
+			read -n 1 answer
+			echo
+			case $answer in
+				$N | $n | '') return 0 ;;
+				*) return 1 ;;
+			esac
+			;;
 	esac
 }
 
@@ -101,22 +101,33 @@ echo -e "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNMMMMMMMMMMMMMMMMMMMMMMMMMM
 printf "${bold}Logo asciified by me, original: https://github.com/eccentric-j/doom-icon\n${bold_reset}"
 
 status_msg "Getting all dependencies"
-git clone https://github.com/elken/.doom.d ~/.doom.d
-git clone https://github.com/hlissner/doom-emacs ~/.emacs.doom
-git clone https://github.com/plexus/chemacs2 ~/.emacs.d
-git clone --recursive https://github.com/sorin-ionescu/prezto ~/.zprezto
+pushd ~/.config
+git clone https://github.com/elken/awesome
+git clone https://github.com/elken/doom
+git clone https://github.com/elken/nvim
+git clone https://github.com/doomemacs/doomemacs emacs
+git clone --recursive https://github.com/sorin-ionescu/prezto zsh/prezto
+popd
 
 status_msg "Moving to SSH"
 yadm remote set-url origin "git@github.com:elken/.files"
-pushd ~/.doom.d
-git remote set-url origin "git@github.com:elken/.doom.d"
+pushd ~/.config/doom
+git remote set-url origin "git@github.com:elken/doom"
 popd
 
 status_msg "Checking OS"
 
 system=$(uname -s)
+distro=$(grep ^NAME /etc/os-release | cut -d= -f2)
+variant=$(grep ^VARIANT_ID /etc/os-release | cut -d= -f2)
+
+if [ $? -ne 0 ]; then
+	distro=""
+	variant=""
+fi
 
 printf "${colorB}Looks like ${colorW}${bold}${system}${bold_reset}${reset}\n"
+printf "${colorB}${distro}${variant}${reset}\n"
 
 status_msg "Sourcing shell config"
 source $HOME/.zprofile
@@ -140,20 +151,33 @@ if ! command -v doom >/dev/null 2>&1; then
 fi
 
 status_msg "Getting Doom ready"
-doom sync && doom build
+doom sync
 
-if [ "$system" = "Linux" ]; then
-	if [ -f /usr/share/xsessions ]; then
-		status_msg "Adding exwm desktop file"
-		sudo cat <<EOF >/usr/share/xsessions/exwm.desktop
-    [Desktop Entry]
-    Name=EXWM
-    Comment=Emacs Window Manager
-    Exec=/home/elken/.doom.d/exwm/start.sh
-    TryExec=sh
-    Type=Application
-    DesktopNames=exwm
-    Icon=/home/elken/Pictures/doom_icon.png
-EOF
-	fi
+if [ "$system" = "Linux" && ! -e "$HOME/.config/.bootstrap-done" ]; then
+	mkdir -p ~/.icons ~/.fonts ~/.themes
+	header_msg "Getting GTK themes/icons"
+
+	status_msg "Papirus icons"
+	wget -qO- https://git.io/papirus-icon-theme-install | DESTDIR="$HOME/.icons" sh
+
+	status_msg "Vimix Cursors"
+	pushd $(mktemp -d /tmp/vimix.XXXXX || exit 1)
+	wget https://github.com/vinceliuice/Vimix-cursors/archive/refs/heads/master.zip
+	unzip master.zip
+	cd Vimix-cursors-master
+	./install.sh
+	popd
+
+	status_msg "Nordic"
+	git clone https://github.com/EliverLara/Nordic ~/.themes/Nordic
+	ln -sf ~/.themes/Nordic-v40/gtk-4.0 ~/.config/gtk-4.0
+
+	header_msg "Last minute changes"
+	status_msg "Changing Paprius icons to Nordic"
+	git clone https://github.com/PapirusDevelopmentTeam/papirus-folders
+	pushd papirus-folders
+	./papirus-folders -C nordic
+	popd
+	rm -rf papirus-folders
+	touch $HOME/.config/.bootstrap-done
 fi

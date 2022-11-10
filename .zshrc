@@ -33,8 +33,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+if [[ -s "${ZDOTDIR:-$HOME}/.config/zsh/prezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.config/zsh/prezto/init.zsh"
 fi
 
 # Command-not-found sucks
@@ -48,15 +48,26 @@ unset GREP_OPTIONS
 # promptinit
 # prompt pure
 #source ~/.zprofile
+setopt no_hist_verify
+setopt HIST_IGNORE_DUPS
+
 source $HOME/.aliases
 export PANEL_FIFO="/tmp/panel-fifo"
 export CHROOT="$HOME/chroot"
-export ZSH_AUTOSUGGEST_USE_ASYNC=1
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 export PULSE_LATENCY_MSEC=120
 export WEBKIT_FORCE_SANDBOX=0
-setopt no_hist_verify
-setopt HIST_IGNORE_DUPS
+export WEBKIT_DISABLE_COMPOSITING_MODE=1
+
+export BROWSER="xdg-open"
+export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT="1"
+export EDITOR="e"
+export GIT_EDITOR="e"
+export LANG="en_GB.UTF-8"
+export LC_ALL="en_GB.UTF-8"
+export NVIM_TUI_ENABLE_TRUE_COLOR="1"
+export TERM="xterm-256color"
+export ZSH_AUTOSUGGEST_USE_ASYNC="1"
 
 set ZLE_RPROPT_INDENT=1
 
@@ -88,14 +99,14 @@ function TRAPINT() {
 
 }
 
-for i in artisan.zsh emacs.zsh agnoster.zsh k.sh notifyosd.zsh; do
-    [ -e $HOME/.zsh/$i ] && . $HOME/.zsh/$i
+for i in fzf.zsh k.sh notifyosd.zsh; do
+    [ -e $HOME/.config/zsh/$i ] && . $HOME/.config/zsh/$i
 done
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/p10k.zsh.
+[[ ! -f ~/.config/zsh/p10k.zsh ]] || source ~/.config/zsh/p10k.zsh
 
-[[ "$INSIDE_EMACS" = 'vterm' ]] && . ~/.zsh/vterm.zsh
+[[ "$INSIDE_EMACS" = 'vterm' ]] && . ~/.config/zsh/vterm.zsh
 
 [ -e ~/.guix-profile ] && . ~/.guix-profile/etc/profile
 

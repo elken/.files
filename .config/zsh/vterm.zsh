@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 autoload -U add-zsh-hook
 add-zsh-hook -Uz chpwd (){ print -Pn "\e]2;%m:%2~\a" }
 
@@ -31,6 +33,15 @@ magit_current(){
     vterm_cmd magit-status "$(realpath "${@:-.}")"
 }
 
+woman () {
+    vterm_cmd woman $1
+}
+
+dired () {
+    vterm_cmd dired "$(realpath "${@:-.}")"
+}
+
 alias clear='vterm_printf "51;Evterm-clear-scrollback";tput clear'
-alias e='find_file'
 alias mg='magit_current'
+alias man='woman'
+alias fm='dired'

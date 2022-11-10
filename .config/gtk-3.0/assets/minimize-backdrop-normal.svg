@@ -7,20 +7,20 @@
 </defs>
 <g fill="none" stroke="black" stroke-width="1" fill-rule="evenodd" stroke-linecap="square" stroke-linejoin="bevel" >
 
-<g fill="#000000" fill-opacity="1" stroke="none" transform="matrix(3.125,0,0,3.125,-790.625,839.493)"
-font-family="Montserrat" font-size="9" font-weight="400" font-style="normal" 
-opacity="0" >
-<rect x="253" y="-268.638" width="16" height="16"/>
+<g fill="#232831" fill-opacity="1" stroke="none" transform="matrix(0.0548323,0,0,-0.0548325,-0.0246811,48.9938)"
+font-family="Noto Sans" font-size="10" font-weight="400" font-style="normal" 
+>
+<path vector-effect="none" fill-rule="evenodd" d="M456.39,-18.3504 C708.192,-18.3504 912.321,185.779 912.321,437.583 C912.321,689.388 708.192,893.517 456.39,893.517 C204.58,893.517 0.45012,689.388 0.45012,437.583 C0.45012,185.779 204.58,-18.3504 456.39,-18.3504 "/>
 </g>
 
-<g fill="#5d5d5d" fill-opacity="1" stroke="none" transform="matrix(3.125,0,0,3.125,-12.5,-3226.13)"
-font-family="Montserrat" font-size="9" font-weight="400" font-style="normal" 
+<g fill="#3b4252" fill-opacity="1" stroke="none" transform="matrix(0.0548323,0,0,-0.0548325,-0.0246811,48.9938)"
+font-family="Noto Sans" font-size="10" font-weight="400" font-style="normal" 
 >
-<path vector-effect="none" fill-rule="evenodd" d="M12.0001,1047.36 C15.866,1047.36 19,1044.23 19,1040.36 C19,1036.5 15.866,1033.36 12.0001,1033.36 C8.13402,1033.36 5,1036.5 5,1040.36 C5,1044.23 8.13402,1047.36 12.0001,1047.36 "/>
+<path vector-effect="none" fill-rule="evenodd" d="M451.979,64.8275 C656.567,64.8275 822.423,230.686 822.423,435.277 C822.423,639.87 656.567,805.724 451.979,805.724 C247.383,805.724 81.5274,639.87 81.5274,435.277 C81.5274,230.686 247.383,64.8275 451.979,64.8275 "/>
 </g>
 
 <g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
-font-family="Montserrat" font-size="9" font-weight="400" font-style="normal" 
+font-family="Noto Sans" font-size="10" font-weight="400" font-style="normal" 
 >
 </g>
 </g>

@@ -1,6 +1,5 @@
 alias make='make -j`expr $(nproc) + 1` -l$(nproc)'
 alias c='clear'
-alias ls='ls --color=auto'
 alias q='exit'
 alias ff='fzf'
 alias vf='vim $(fzf)'
@@ -10,7 +9,14 @@ alias so='source'
 alias sprUp="curl -F 'sprunge=<-' http://sprunge.us"
 alias diff="/usr/bin/diff -rupN"
 alias pbcopy='xsel --clipboard --input'
+alias pbc='pbcopy'
 alias pbpaste='xsel --clipboard --output'
+alias pbp='pbpaste'
+alias cat='bat'
+alias http-serve='python -m http.server'
+alias ls='exa --git --icons'
+alias la='exa --git --icons -al'
+alias ll='exa --git --icons -l'
 
 # Git
 alias workdone="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --author=elken"

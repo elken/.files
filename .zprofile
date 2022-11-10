@@ -56,21 +56,16 @@ if [[ "$INSIDE_EMACS" != 'vterm' ]]; then
 
   # Set the list of directories that Zsh searches for programs.
   path=(
-    /usr/local/share/dotnet
-    $HOME/.composer/vendor/bin
-    $HOME/.emacs.doom/bin
-    $HOME/.emacs.d/bin
+    $HOME/.config/emacs/bin
     $HOME/.cargo/bin
     $HOME/bin
     $HOME/.local/bin
     $HOME/.config/yarn/global/node_modules/.bin
-    $HOME/.dwm/bin
     $HOME/.dotnet/tools
     $HOME/spicetify-cli
     $HOME/.luarocks/bin
     $HOME/build/phpactor/bin
     $HOME/go/bin
-    $HOME/flutter/bin
     /usr/local/{bin,sbin}
     /usr/bin
     $path
