@@ -1,11 +1,11 @@
 #!/usr/bin/env bb
 (require '[clojure.java.shell :refer [sh]])
-(require '[clojure.pprint :refer [cl-format pprint]])
+(require '[clojure.pprint :refer [pprint]])
 
 (defn is-connected [name]
   "Given a NAME, check if the display is connected"
   (< 0 (count (->> (str/split-lines (:out (sh "xrandr")))
-                   (filter #(.contains %1 (cl-format nil "~A connected" name)))))))
+                   (filter #(.contains %1 (format "%s connected" name)))))))
 
 (let [monitor-config [{:name "eDP-1" :primary true :resolution [1920 1080]}
                       {:name "DP-2" :primary false :resolution [2560 1440]}
