@@ -17,8 +17,8 @@ fi
 # Editors
 #
 
-export VISUAL='nvim'
-export EDITOR='nvim'
+export VISUAL='visual'
+export EDITOR='edit'
 export PAGER='less'
 
 #
@@ -112,32 +112,4 @@ function au(){
     else
         echo "$AURA"
     fi
-}
-
-function audl(){
-    for i in "$@"
-    do
-        curl -s https://aur.archlinux.org/packages/$(echo $i | cut -c1,2)/$i/$i.tar.gz | tar zxvf -
-    done
-}
-
-function cm()
-{
-    set -o pipefail
-    $@ 2>&1  | colout -t cmake | colout -t g++
-}
-
-function sail() {
-    dir=.
-    until [ $dir -ef / ]; do
-        if [ -f "$dir/artisan" ]; then
-	    cd $dir
-	    ./vendor/bin/sail $*
-	    cd - >/dev/null 2>&1
-	fi
-
-	dir+=/..
-    done
-    return 1
-
 }
