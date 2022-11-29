@@ -38,3 +38,6 @@
 	email = "me@elken.dev"
 	name = "Ellis Kenyo"
 	signingKey = "298BE5D997EBAA02"
+
+[includeIf "gitdir:~/build/juxt/**/*.git"]
+	path = ~/build/juxt/.gitconfig
