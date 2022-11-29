@@ -107,6 +107,7 @@ git clone https://github.com/elken/doom
 git clone https://github.com/elken/nvim
 git clone https://github.com/doomemacs/doomemacs emacs
 git clone --recursive https://github.com/sorin-ionescu/prezto zsh/prezto
+git clone https://github.com/hlissner/zsh-autopair zsh/autopair
 popd
 
 status_msg "Moving to SSH"

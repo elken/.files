@@ -1,5 +1,5 @@
 # Load SSH/GPG keys
-eval "$(keychain --eval --quiet ~/.ssh/git)"
+eval "$(keychain --eval --quiet --agents ssh,gpg ~/.ssh/git)"
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -38,7 +38,8 @@ export ZSH_AUTOSUGGEST_USE_ASYNC=1
 set ZLE_RPROPT_INDENT=1
 
 eval `dircolors ~/.dircolors`
-# eval "$(fasd --init zsh-hook zsh-ccomp auto)"
+eval "$(fasd --init zsh-hook zsh-ccomp auto)"
+eval "$(direnv hook zsh)"
 
 setopt no_hist_verify
 
@@ -73,3 +74,8 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 # opam configuration
 [[ ! -r /home/elken/.opam/opam-init/init.zsh ]] || source /home/elken/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
+if [[ -e ~/.config/zsh/autopair ]]; then
+  source ~/.config/zsh/autopair/autopair.zsh
+  autopair-init
+fi

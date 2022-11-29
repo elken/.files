@@ -17,8 +17,8 @@ fi
 # Editors
 #
 
-export VISUAL='visual'
-export EDITOR='edit'
+export VISUAL='edit'
+export EDITOR='visual'
 export PAGER='less'
 
 #
