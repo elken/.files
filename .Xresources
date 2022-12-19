@@ -1,4 +1,4 @@
-#include ".Xresources.d/nord"
+#include ".Xresources.d/catpuccin"
 ! Color scheme
 Xcursor.theme: Vimix-cursors
 
