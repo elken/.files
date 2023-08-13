@@ -47,7 +47,21 @@ status_msg() {
 	printf "${colorG}%s${reset}\n" "${1}"
 }
 
-if [ "$system" = "Linux" && ! -e "$HOME/.config/.bootstrap-done" ]; then
+status_msg "Checking OS"
+
+system=$(uname -s)
+distro=$(grep ^NAME /etc/os-release | cut -d= -f2)
+variant=$(grep ^VARIANT_ID /etc/os-release | cut -d= -f2)
+
+if [ $? -ne 0 ]; then
+	distro=""
+	variant=""
+fi
+
+printf "${colorB}Looks like ${colorW}${bold}${system}${bold_reset}${reset}\n"
+printf "${colorB}${distro}${variant}${reset}\n"
+
+if ! -e "$HOME/.config/.bootstrap-done"; then
 	echo -e "${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM"
 	echo -e "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMVVNMMMMMMMMMMMMMMMMMMMMMMMMMMMMM"
 	echo -e "MMMMMMMMMMMMMMMMMMMMMMMMMMMNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM${colorW}N**\$${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMMMMM"
@@ -102,6 +116,8 @@ if [ "$system" = "Linux" && ! -e "$HOME/.config/.bootstrap-done" ]; then
 	printf "${bold}Logo asciified by me, original: https://github.com/eccentric-j/doom-icon\n${bold_reset}"
 
 	status_msg "Getting all dependencies"
+	mkdir -p ~/.local/share/icons ~/.local/share/themes
+
 	pushd ~/.config
 	git clone https://github.com/elken/doom
 	git clone https://github.com/elken/nvim
@@ -119,22 +135,8 @@ if [ "$system" = "Linux" && ! -e "$HOME/.config/.bootstrap-done" ]; then
 	git remote set-url origin "git@github.com:elken/doom"
 	popd
 
-	status_msg "Checking OS"
-
-	system=$(uname -s)
-	distro=$(grep ^NAME /etc/os-release | cut -d= -f2)
-	variant=$(grep ^VARIANT_ID /etc/os-release | cut -d= -f2)
-
-	if [ $? -ne 0 ]; then
-		distro=""
-		variant=""
-	fi
-
-	printf "${colorB}Looks like ${colorW}${bold}${system}${bold_reset}${reset}\n"
-	printf "${colorB}${distro}${variant}${reset}\n"
-
 	status_msg "Sourcing shell config"
-	source $HOME/.zprofile
+	source $HOME.config/zsh/.zprofile
 
 	if [ "$system" = "Darwin" ]; then
 		if ! command -v brew >/dev/null 2>&1; then
