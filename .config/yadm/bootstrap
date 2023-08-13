@@ -108,6 +108,8 @@ if [ "$system" = "Linux" && ! -e "$HOME/.config/.bootstrap-done" ]; then
 	git clone https://github.com/doomemacs/doomemacs emacs
 	git clone --recursive https://github.com/sorin-ionescu/prezto zsh/prezto
 	git clone https://github.com/hlissner/zsh-autopair zsh/autopair
+	git clone https://github.com/ccuqme/swarofi-updater.git
+	chmod +x swarofi-updater/*.sh
 	popd
 	git clone https://github.com/elken/Nordic ~/.local/share/themes/Nordic
 

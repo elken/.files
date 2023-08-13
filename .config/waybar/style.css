@@ -1,0 +1,279 @@
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 13px;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+    background: inherit;
+    box-shadow: inset 0 -3px #ffffff;
+}
+
+window > box {
+    margin-bottom: 0;
+    padding: 0;
+    background-color: @theme_base_color;
+    color: @theme_text_color;
+}
+
+/* Regular workspace button */
+#workspaces button {
+    color: @theme_unfocused_fg_color;
+    /* margin: 7px 3px; */
+    padding: 0 5px;
+    box-shadow: inset 0 -3px transparent;
+    transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.68);
+    background-color: transparent;
+}
+
+#workspaces button:hover {
+    background-color: @theme_unfocused_bg_color;
+}
+
+/* Sway active monitor & workspace */
+#workspaces button.focused {
+    background-color: #B48EAD;
+    color: @theme_selected_fg_color;
+    box-shadow: inset 0 -3px @theme_selected_fg_color;
+}
+
+/* Sway active workspace on inactive monitor */
+#workspaces button.visible:not(.focused) {
+    background-color: @theme_unfocused_bg_color;
+    color: @theme_unfocused_fg_color;
+    box-shadow: inset 0 -3px @theme_unfocused_fg_color;
+}
+
+#workspaces button.urgent {
+    background-color: @error_color;
+}
+
+#mode {
+    background-color: #64727D;
+    border-bottom: 3px solid #ffffff;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#custom-media,
+#mpd {
+    background-color: @theme_unfocused_bg_color;
+    border-radius: 1rem;
+    padding: 5 10px;
+    margin: 7px 3px;
+    color: #ffffff;
+box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+#clock {
+    background-color: #64727D;
+}
+
+#battery {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+#battery.charging, #battery.plugged {
+    color: #ffffff;
+    background-color: #26A65B;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: #f53c3c;
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+#cpu {
+    background-color: #2ecc71;
+    color: #000000;
+}
+
+#memory {
+    background-color: #9b59b6;
+}
+
+#disk {
+    background-color: #964B00;
+}
+
+#backlight {
+    background-color: #90b1b1;
+}
+
+#network {
+    background-color: #2980b9;
+}
+
+#network.disconnected {
+    background-color: #f53c3c;
+}
+
+#pulseaudio {
+    background-color: #f1c40f;
+    color: #000000;
+}
+
+#pulseaudio.muted {
+    background-color: #90b1b1;
+    color: #2a5c45;
+}
+
+#wireplumber {
+    background-color: #fff0f5;
+    color: #000000;
+}
+
+#wireplumber.muted {
+    background-color: #f53c3c;
+}
+
+#custom-media {
+}
+
+#custom-media.icon {
+    color: #ECEFF4;
+    margin-right: 0;
+    padding-right: 5px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+#custom-media.icon.Paused {
+    background-color: #EBCB8B;
+}
+
+#custom-media.icon.Playing {
+    background-color: #A3BE8C;
+}
+
+#custom-media.status {
+    background-color: @theme_unfocused_bg_color;
+    color: @theme_text_color;
+    margin-left: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+#temperature {
+    background-color: #f0932b;
+}
+
+#temperature.critical {
+    background-color: #eb4d4b;
+}
+
+#tray {
+    background-color: #2980b9;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #eb4d4b;
+}
+
+#idle_inhibitor {
+    background-color: #2d3436;
+}
+
+#idle_inhibitor.activated {
+    background-color: #ecf0f1;
+    color: #2d3436;
+}
+
+#mpd {
+    background-color: #66cc99;
+    color: #2a5c45;
+}
+
+#mpd.disconnected {
+    background-color: #f53c3c;
+}
+
+#mpd.stopped {
+    background-color: #90b1b1;
+}
+
+#mpd.paused {
+    background-color: #51a37a;
+}
+
+#language {
+    background: #00b093;
+    color: #740864;
+    padding: 0 5px;
+    margin: 0 5px;
+    min-width: 16px;
+}
+
+#keyboard-state {
+    background: #97e1ad;
+    color: #000000;
+    padding: 0 0px;
+    margin: 0 5px;
+    min-width: 16px;
+}
+
+#keyboard-state > label {
+    padding: 0 5px;
+}
+
+#keyboard-state > label.locked {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#scratchpad {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#scratchpad.empty {
+    background-color: transparent;
+}
+
+#custom-recorder {
+    font-size: 18px;
+    margin: 2px 7px 0px 7px;
+    color:#c9545d;
+}
+
+#custom-notifications {
+    margin: 0px 5px;
+    margin-right: 15px;
+}
