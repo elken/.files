@@ -1,0 +1,9 @@
+[Context]
+filesystems=xdg-config/gtk-3.0;~/.icons:ro;~/.themes:ro;/usr/share/icons/:ro;~/.local/share/icons:ro
+
+[Environment]
+GTK_THEME=Nordic
+GTK_THEME_VARIANT=dark
+ICON_THEME=Nordzy-purple-dark
+XCURSOR_THEME=Nordzy-cursors
+XCURSOR_PATH=~/.icons

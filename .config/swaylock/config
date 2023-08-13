@@ -1,0 +1,17 @@
+clock
+datestr=%A, %d/%m/%y
+effect-blur=7x5
+effect-vignette=0.5:0.5
+indicator-radius=100
+indicator-thickness=7
+inside-color=#313244
+inside-ver-color=#ffffff22
+inside-wrong-color=#f38ba8bb
+key-hl-color=#f38ba8bb
+line-color=#313244
+ring-color=#1e1e2ecc
+ring-ver-color=#f9e2afbb
+screenshots
+separator-color=#1e1e2ecc
+text-color=#cdd6f4bb
+timestr=%H:%M:%S

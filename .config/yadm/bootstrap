@@ -109,6 +109,7 @@ if [ "$system" = "Linux" && ! -e "$HOME/.config/.bootstrap-done" ]; then
 	git clone --recursive https://github.com/sorin-ionescu/prezto zsh/prezto
 	git clone https://github.com/hlissner/zsh-autopair zsh/autopair
 	popd
+	git clone https://github.com/elken/Nordic ~/.local/share/themes/Nordic
 
 	status_msg "Moving to SSH"
 	yadm remote set-url origin "git@github.com:elken/.files"
