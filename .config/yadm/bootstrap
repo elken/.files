@@ -165,6 +165,7 @@ if ! -e "$HOME/.config/.bootstrap-done"; then
 		flatpak install --noninteractive flathub org.mozilla.firefox org.mozilla.Thunderbird org.libreoffice.LibreOffice com.github.tchx84.Flatseal com.slack.Slack com.spotify.Client io.podman_desktop.PodmanDesktop net.lutris.Lutris org.inkscape.Inkscape org.kde.kdenlive org.videolan.VLC
 	fi
 
+	rm -rf $HOME/.config/sway/config.d/99-firstboot.conf
 	touch $HOME/.config/.bootstrap-done
 else
 	status_msg "Already ran, if this is an error remove $HOME/.config/.bootstrap-done"
