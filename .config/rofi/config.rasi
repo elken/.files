@@ -8,7 +8,7 @@
 
 configuration {
 	/*---------- General setting ----------*/
-	modi: "drun,run,filebrowser,window,ssh,keys";
+	modi: "drun,run,filebrowser,window,ssh,keys,clipboard:~/bin/clipboard";
 	case-sensitive: false;
 	cycle: true;
 	filter: "";

@@ -38,7 +38,7 @@ export ZSH_AUTOSUGGEST_USE_ASYNC=1
 set ZLE_RPROPT_INDENT=1
 
 eval `dircolors ~/.dircolors`
-eval "$(fasd --init zsh-hook zsh-ccomp auto)"
+# eval "$(fasd --init zsh-hook zsh-ccomp auto)"
 eval "$(direnv hook zsh)"
 
 setopt no_hist_verify

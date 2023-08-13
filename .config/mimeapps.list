@@ -1,18 +1,18 @@
 [Default Applications]
 x-scheme-handler/jetbrains=jetbrains-toolbox.desktop
-x-scheme-handler/http=vivaldi-stable.desktop
-x-scheme-handler/https=vivaldi-stable.desktop
+x-scheme-handler/http=org.mozilla.firefox.desktop
+x-scheme-handler/https=org.mozilla.firefox.desktop
 x-scheme-handler/ftp=firefox.desktop
 x-scheme-handler/chrome=firefox.desktop
-text/html=vivaldi-stable.desktop
+text/html=org.mozilla.firefox.desktop
 application/x-extension-htm=firefox.desktop
 application/x-extension-html=firefox.desktop
 application/x-extension-shtml=firefox.desktop
 application/xhtml+xml=firefox.desktop
 application/x-extension-xhtml=firefox.desktop
 application/x-extension-xht=firefox.desktop
-x-scheme-handler/about=vivaldi-stable.desktop
-x-scheme-handler/unknown=vivaldi-stable.desktop
+x-scheme-handler/about=org.mozilla.firefox.desktop
+x-scheme-handler/unknown=org.mozilla.firefox.desktop
 x-scheme-handler/rdp=org.remmina.Remmina.desktop
 x-scheme-handler/spice=org.remmina.Remmina.desktop
 x-scheme-handler/vnc=org.remmina.Remmina.desktop
@@ -43,6 +43,9 @@ image/vnd.wap.wbmp=org.gnome.eog.desktop
 image/x-icns=org.gnome.eog.desktop
 x-scheme-handler/mailto=org.gnome.Evolution.desktop
 x-scheme-handler/msteams=teams.desktop
+text/calendar=org.gnome.Calendar.desktop
+application/x-wine-extension-ini=emacs.desktop
+application/vnd.oasis.opendocument.text=emacs.desktop
 
 [Added Associations]
 x-scheme-handler/http=firefox.desktop;
@@ -86,4 +89,6 @@ application/x-ms-dos-executable=wine.desktop;
 x-scheme-handler/sms=org.gnome.Shell.Extensions.GSConnect.desktop;
 x-scheme-handler/tel=org.gnome.Shell.Extensions.GSConnect.desktop;
 x-scheme-handler/mailto=org.gnome.Evolution.desktop;
-application/x-wine-extension-ini=emacsclient.desktop;
+application/x-wine-extension-ini=emacsclient.desktop;emacs.desktop;
+text/calendar=org.gnome.Calendar.desktop;
+application/vnd.oasis.opendocument.text=emacs.desktop;

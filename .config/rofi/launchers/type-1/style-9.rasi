@@ -9,13 +9,14 @@
 
 /*****----- Configuration -----*****/
 configuration {
-	modi:                       "drun,run,filebrowser,ssh,window";
-    show-icons:                 false;
-    display-drun:               " Apps";
-    display-run:                " Run";
-    display-filebrowser:        " Files";
-    display-window:             " Windows";
-	display-ssh:                " SSH";
+	modi:                       "drun,run,filebrowser,ssh,window,clipboard:~/bin/rofi/clipboard";
+    show-icons:                 true;
+    display-drun:               "  Apps";
+    display-run:                "  Run";
+    display-filebrowser:        "  Files";
+    display-window:             "  Windows";
+	display-ssh:                "  SSH";
+    display-clipboard:          "  Clipboard";
 	drun-display-format:        "{name}";
 	window-format:              "{w} · {c} · {t}";
 }

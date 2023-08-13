@@ -47,138 +47,120 @@ status_msg() {
 	printf "${colorG}%s${reset}\n" "${1}"
 }
 
-echo -e "${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM"
-echo -e "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMVVNMMMMMMMMMMMMMMMMMMMMMMMMMMMMM"
-echo -e "MMMMMMMMMMMMMMMMMMMMMMMMMMMNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM${colorW}N**\$${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMMMMM"
-echo -e "MMMMMMMMMMMMMMMMMMMMMMMMM${colorW}NFV${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM${colorW}*${bold}:${bold_reset}*\$${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMMMM"
-echo -e "MMMMMMMMMMMMMMMMMMMMMMMM${colorW}N**N${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM${colorW}I${bold}:${bold_reset}**\$${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMMM"
-echo -e "MMMMMMMMMMMMMMMMMMMMMMMN${colorW}***N${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM${colorW}VIN${colorBl}MMMMMM${colorW}*${bold}:${bold_reset}***${colorBl}NMMMMMMMMMMMMMMMMMMMMMMMMM"
-echo -e "MMMMMMMMMMMMMMMMMMMMMMM${colorW}F${bold}:${bold_reset}**\$${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM${colorW}N*${bold}:${bold_reset}*N${colorBl}MMMM${colorW}N${bold}:::${bold_reset}**\$${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMM"
-echo -e "MMMMMMMMMMMMMMMMMMMMMM${colorW}N${bold}::${bold_reset}**I${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM${colorW}I${bold}.::${bold_reset}*${colorBl}MMM${colorW}N*${bold}::${bold_reset}***F${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMM"
-echo -e "MMMMMMMMMMMMMMMMMMMMMM${colorW}\$${bold}::${bold_reset}**:\$${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM${colorW}NI${bold}..:::${bold_reset}\$${colorBl}MM${colorW}I${bold}:::${bold_reset}***F${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMM"
-echo -e "MMMMMMMMMMMMMMMMMMMMMM${colorW}\$${bold}:::${bold_reset}***N${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMMMMM${colorW}\$${bold}:..::::${bold_reset}FNI${bold}:::${bold_reset}***:\$${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMM"
-echo -e "MMMMMMMMMMMMMMMMMMMMMM${colorW}\$${bold}:::${bold_reset}****N${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMMMM${colorW}\$\$VVII*V\$*${bold}:::${bold_reset}****:N${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMM"
-echo -e "MMMMMMMMMMMMMMMMMMMMMMN${colorW}${bold}::::${bold_reset}****\$${colorBl}MMMMMMMMMMM${colorR}NN\$\$\$\$VVVFFFFFVVVV\$\$\$NNN${colorW}\$VI*****I${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMMM"
-echo -e "MMMMMMMMMMMMMMMMMMMMMMM${colorW}*${bold}::::${bold_reset}***:I${colorBl}NMMMM${colorR}N\$\$VFIIIIIIIIIIIIIIIIIIIIIIIFV\$\$NN\$F*\$${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMMM"
-echo -e "MMMMMMMMMMMMMMMMMMMMMMM${colorW}V${bold}:::::${bold_reset}*****\$N\$V${colorR}FIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIV\$\$NM${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMMM"
-echo -e "MMMMMMMMMMMMMMMM${colorW}\$FN${colorBl}MMMMN${colorW}*${bold}:::::${bold_reset}*******${colorR}IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIFFIF\$\$N${colorBl}MN\$${colorW}VFIIIN${colorBl}MMMMMMMMMMMMMMM"
-echo -e "MMMMMMMMMMNMMMMM${colorW}V${bold}::${bold_reset}F${colorBl}NMMM${colorW}\$${bold}::::::${bold_reset}********${colorR}IIIIIIIIIIIIIIII${colorG}FVV\$\$VVVF${colorR}IIIIIIIIIIIFFF\$${colorBl}NN${colorW}F***\$${colorBl}MMMMMMMMMMMMMMMM"
-echo -e "MMMMMMMMMM${colorW}F\$${colorBl}MMMM${colorW}\$${bold}.:::${bold_reset}*${colorBl}VNMI${colorW}${bold}:::::::${bold_reset}*******${colorR}IFIIIIIIIIII${colorG}F\$\$\$\$\$\$\$\$\$\$\$\$\$${colorR}FIIIIIIIIFFIIF\$${colorW}NNFV${colorBl}MMMMMMMMMMMMMMMMM"
-echo -e "MMMMMMMMMM${colorW}**\$${colorBl}MMMN${colorW}${bold}:.:::::${bold_reset}\$${colorBl}N*${colorW}${bold}:::::::${bold_reset}*******V${colorR}FIIIIIII${colorG}V\$\$\$\$\$\$\$\$\$\$\$VVVV\$\$V${colorR}IIIIIFFIIIFFF\$${colorBl}NMMMMMMMMMMMMMMMMMM"
-echo -e "MMMMMMMMMM${colorW}I${bold}:${bold_reset}*${colorBl}VNMM${colorW}V${bold}..::${bold_reset}*NN${colorBl}VI${colorW}${bold}::::::::${bold_reset}*****F${colorR}VVFIIIIIV${colorG}\$\$\$\$\$\$${colorW}II*IV${colorBl}\$\$\$${colorG}VVVV\$V${colorR}IIIFFFIIIFFFFV${colorBl}NMMMMMMMMMMMMMMMMM"
-echo -e "MMMMMMMMMM${colorW}\$${bold}::${bold_reset}**${colorBl}IV${colorW}\$VIIFN\$${colorR}FIII${colorW}${bold}:::::::${bold_reset}***I${colorR}VVVVVFFFIF${colorG}\$\$\$\$\$${colorW}I${bold}::::::${bold_reset}*${colorBl}\$\$\$${colorG}VVVF\$F${colorR}IFFIIFIIFFFIFF\$${colorBl}MMMMMMMMMMMMMMMM"
-echo -e "MMMMMMMMMMM${colorW}V${bold}:::${bold_reset}*********${colorR}**III${colorW}*${bold}:::${bold_reset}***IV\$${colorR}VVVVVVFFF${colorG}\$\$VV\$\$${colorW}${bold}********${bold_reset}F${colorBl}\$\$\$${colorG}VFII\$${colorR}FFIIIFFFFFFIIFFVN${colorBl}MMMMMMMMMMMMMM"
-echo -e "MMMMMMMMMMMM${colorW}F${bold}:::::${bold_reset}*********${colorR}FFIIIIFVVVVVVVVVFFFFF${colorG}\$\$VV${colorBl}\$\$F${colorW}${bold}****${bold_reset}III${colorBl}\$\$\$\$${colorG}FIII\$${colorR}FFFFFFFFIIFFFVVFVN${colorBl}MMMMMMMMMMMMM"
-echo -e "MMMMMMMMMMMMM${colorW}\$*${bold}:::::::${bold_reset}*****${colorR}FVVIIIIIFFFVVVFFIFFFFV${colorG}\$VVV${colorBl}\$\$\$${colorW}${bold}VVVV${bold_reset}${colorBl}\$\$\$\$\$${colorG}II**FV${colorR}FFFFFFFIIIFVVFFVFV${colorBl}MMMMMMMMMMMMM"
-echo -e "MMMMMMMMMMMMMMN${colorW}\$*${bold}::::::${bold_reset}****${colorR}VVVFIIIIIIIIIIIIIIFFFI${colorG}\$\$VVVV${colorBl}\$\$\$\$\$\$\$\$${colorG}F****I\$${colorR}FFFFFFFFFFFVVFFFVVI\$${colorBl}MMMMMMMMMMMM"
-echo -e "MMMMMMMMMMMMMMMMMN${colorW}V*****IFVVVVVF${colorR}IIIIIIIIIIIIIIIIIIV${colorG}\$FIIIIIIII******F\$${colorR}FFFFFFFFFFVVVFVVVVVFIN${colorBl}MMMMMMMMMMM"
-echo -e "MMMMMMMMMMMMMMMMMMN${colorR}II${colorW}FVVVVVVVVVV${colorR}FFFIIIIIIIIIIIIIIIIF${colorG}VVFI********IVV${colorR}FFFFFFFFV\$VVVVFFFVVVVVI\$${colorBl}MMMMMMMMMMM"
-echo -e "MMMMMMMMMMMMMMMMMM${colorR}\$IIII${colorW}FVVVVVVV${colorR}FFFFFIIIIIIIIIIIIIIIIII${colorG}FVVVVFVVVV${colorR}FFFFFFFFFFF\$VVVVVFFVVVVVVFF${colorBl}MMMMMMMMMMM"
-echo -e "MMMMMMMMMMMMMMMMMM${colorR}VFIIIIIIFFFFFFFFFIIIIIIIIIIIIIIIIIIIIIFFFFFFFVVFFFFFFFFF\$\$VVVVVVVVVVVVVVIN${colorBl}MMMMMMMMMM"
-echo -e "MMMMMMMMMMMMMMMMMN${colorR}FFIIIIIIIIIIIIIIIIIIIIIIIII${colorBl}${bold}F\$\$\$V${bold_reset}${colorR}IIIIIIFFFFFFFVN\$FFFF${colorBl}${bold}VV\$N\$${bold_reset}${colorR}VVFFFFVVVVVVVVVI\$${colorBl}MMMMMMMMMM"
-echo -e "MMMMMMMMMMMMMMMMMN${colorR}IFIIIIFFFIIIIIIIIIIIIIIIIII${colorBl}${bold}FFV\$\$\$V${bold_reset}${colorR}FFFIFFFFFV\$NNNN\$\$${colorBl}${bold}FIIVN${bold_reset}${colorR}\$VVFFFVVVVVVVVVVI\$${colorBl}MMMMMMMMMM"
-echo -e "MMMMMMMMMMMMMMMMMN${colorR}FFIIIIIFFIIIIIIIIFFFIIIIIIIIFFFF${colorBl}${bold}V\$\$\$${bold_reset}${colorR}\$\$\$\$\$\$V${colorBl}${bold}\$\$\$\$\$${bold_reset}${colorR}\$\$\$\$${colorBl}${bold}**\$N\$${bold_reset}${colorR}VVVVVVVVVVV\$\$\$\$I\$${colorBl}MMMMMMMMMM"
-echo -e "MMMMMMMMMMMMMMMMMM${colorR}VIIIIIIIFFIIFFFFIIFFFIIIIIIFFFFFFFF${colorBl}${bold}\$N\$\$F${colorW}::${colorBl}I\$\$\$\$\$${colorW}::${colorBl}\$\$\$\$\$N${bold_reset}${colorR}VVFFVVVVVVVVV\$\$VIN${colorBl}MMMMMMMMMM"
-echo -e "MMMMMMMMMMMMMMMMMM${colorR}\$FIIIIIIFFIIIFFFIIIFFFIIFFFFFFFFFFFF${colorBl}${bold}\$N\$\$V${colorW}v${colorBl}\$\$\$\$\$\$${colorW}v${colorBl}\$\$\$\$\$N\$${bold_reset}${colorR}VVFVVVV\$\$VVVVV\$VI${colorBl}MMMMMMMMMMM"
-echo -e "MMMMMMMMMMMMMMMMMMN${colorR}FFFIFFFFFIIFFFFFFFFFFFFFFIFFFFFFIFFFV${colorBl}${bold}\$\$\$\$\$\$\$${colorW}^${colorBl}\$\$\$\$V\$\$\$\$${bold_reset}${colorR}VVVVVV\$\$\$\$\$\$\$\$\$\$I\$${colorBl}MMMMMMMMMMM"
-echo -e "MMMMMMMMMMMMMMMMMMM${colorR}\$FFFFFFFFFFFFIIIFFFFFFFIIIFFFFFIIIFFFFV${colorBl}${bold}\$NN\$F${colorW}::${colorBl}\$\$\$\$\$\$${bold_reset}${colorR}VVVVFFV\$\$VVVV\$\$\$\$VIN${colorBl}MMMMMMMMMMM"
-echo -e "MMMMMMMMMMMMMMMMMMM${colorR}NFIIFVFFFFFFFIIIIFFFFFFFFFFFFFFFFFVVVVVVVV\$\$\$\$\$VVFVVVVFVVV\$\$\$\$\$VV\$\$\$\$I\$${colorBl}MMMMMMMMMMMM"
-echo -e "MMMMMMMMMMMMMMMMMMMM${colorR}\$FFVFFIIIIFVFFFFVVVFFFFVVVFFFVVVVVVVFFVVVVVVVVVVVVVVVVVV\$\$\$\$\$\$\$\$\$\$\$IVM\$\$${colorBl}MMMMMMMMMM"
-echo -e "MMMMMMMMMMMMMMMMMMMMM${colorR}\$FVVVFFVVVVVVVVVVVVFFFVVFFFFVVVVVVFFFVVVVFFVVVFFV\$\$\$VVV\$VV\$V\$\$\$\$\$IVN${colorW}\$I*V${colorBl}MMMMMMMMM"
-echo -e "MMMMMMMMMMMMMMMMMMMMMM${colorR}\$FVVVVVFFFVVVVVFVVFFVVVVVVVVVVVVVVVVVVVVVVVVVVV\$\$\$\$V\$\$\$\$\$\$\$\$\$\$\$I\$${colorW}N\$I*I*VN${colorBl}MMMMMMM"
-echo -e "MMMMMMMMMMMMMMMMMMMMMMM${colorR}NFFVVFFFVVVVFFFVVVVVVFVVVVVVVVVVVVVVVVVVVVV\$VV\$\$\$VV\$\$\$\$\$\$\$\$\$VI\$${colorW}MMN\$\$VVFVN${colorBl}MMMMMM"
-echo -e "MMMMMMMMMMMMMMMMMMMMMMMMN${colorR}\$FVVVVVVFVVVVVVVVVFFFVVVVVVVVVVVV\$\$\$\$VVVVV\$\$\$V\$\$\$\$\$\$\$\$\$\$\$FFN${colorBl}MMMMMMMMMMMMMMMMM"
-echo -e "MMMMMMMMMMMMMMMMMMMMMMN${colorW}*F${colorR}NNVFVVVVVVVVVVVVVVVVFFFFVV\$\$VVVV\$VV\$\$VVVVV\$\$\$\$\$\$\$\$\$\$\$\$\$VI\$${colorBl}NMMMMMMMMMMMMMMMMMM"
-echo -e "MMMMMMMMMMMMMMMMMMMMN${colorW}*..*${colorR}VN\$VFV\$\$\$\$VVVV\$\$\$${colorW}I${bold}:::${bold_reset}****IV\$\$${colorR}\$V\$VV\$\$\$\$V\$\$\$\$\$\$\$\$\$\$\$\$\$VI\$${colorBl}NMMMMMMMMMMMMMMMMMMMM"
-echo -e "MMMMMMMMMMMMMMMMMMMMM${colorW}NI${bold}..::::${bold_reset}${colorR}VM\$VFVVVVVV\$\$\$${colorW}\$*${bold}::::${bold_reset}*****\$\$${colorR}VV\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$VIF\$${colorBl}NMMMMMMMMMMMMMMMMMMMMMM"
-echo -e "MMMMMMMMMMMMMMMMMMMM${colorW}F${bold}.::.:${bold_reset}*${colorBl}VNMMM${colorR}N\$FFV\$\$\$\$\$\$${colorW}*${bold}::::${bold_reset}****I\$\$${colorR}V\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$VFIV${colorBl}NMMMMMMMMMMMMMMMMMMMMMMMMM"
-echo -e "MMMMMMMMMMMMMMMMMMM${colorW}\$**I\$${colorBl}NMMMMMMMMMMN${colorR}\$VFFV\$\$${colorW}*${bold}:::${bold_reset}****V\$\$${colorR}\$\$\$\$\$\$\$\$\$\$\$\$\$\$VFIF\$N${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMMMMM"
-echo -e "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNN${colorR}\$VV${colorW}*${bold}:::${bold_reset}***${colorR}\$\$\$\$\$\$\$\$\$\$\$\$VVFFFV\$\$N${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM"
-echo -e "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM${colorW}\$${bold}::${bold_reset}**${colorR}FVVVVVVVVVVVV\$\$\$NN${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM"
-echo -e "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMN${colorW}${bold}:${bold_reset}*I${colorBl}NMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM"
-echo -e "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM${colorW}*\$${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM"
-echo -e "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM${reset}"
-printf "${bold}Logo asciified by me, original: https://github.com/eccentric-j/doom-icon\n${bold_reset}"
-
-status_msg "Getting all dependencies"
-pushd ~/.config
-git clone https://github.com/elken/awesome
-git clone https://github.com/elken/doom
-git clone https://github.com/elken/nvim
-git clone https://github.com/doomemacs/doomemacs emacs
-git clone --recursive https://github.com/sorin-ionescu/prezto zsh/prezto
-git clone https://github.com/hlissner/zsh-autopair zsh/autopair
-popd
-
-status_msg "Moving to SSH"
-yadm remote set-url origin "git@github.com:elken/.files"
-pushd ~/.config/doom
-git remote set-url origin "git@github.com:elken/doom"
-popd
-
-status_msg "Checking OS"
-
-system=$(uname -s)
-distro=$(grep ^NAME /etc/os-release | cut -d= -f2)
-variant=$(grep ^VARIANT_ID /etc/os-release | cut -d= -f2)
-
-if [ $? -ne 0 ]; then
-	distro=""
-	variant=""
-fi
-
-printf "${colorB}Looks like ${colorW}${bold}${system}${bold_reset}${reset}\n"
-printf "${colorB}${distro}${variant}${reset}\n"
-
-status_msg "Sourcing shell config"
-source $HOME/.zprofile
-
-if [ "$system" = "Darwin" ]; then
-	if ! command -v brew >/dev/null 2>&1; then
-		status_msg "Homebrew not installed, installing now"
-		/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-	fi
-
-	if [ -f "$HOME/.Brewfile" ]; then
-		echo "Install homebrew packages"
-		brew bundle --global
-	fi
-fi
-
-if ! command -v doom >/dev/null 2>&1; then
-	error_msg "Not ready to unleash hell."
-	printf "Add ${bold}doom${bold_reset} to path \n(Current value: ${PATH})\n"
-	exit 1
-fi
-
-status_msg "Getting Doom ready"
-doom sync
-
 if [ "$system" = "Linux" && ! -e "$HOME/.config/.bootstrap-done" ]; then
-	mkdir -p ~/.icons ~/.fonts ~/.themes
-	header_msg "Getting GTK themes/icons"
+	echo -e "${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM"
+	echo -e "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMVVNMMMMMMMMMMMMMMMMMMMMMMMMMMMMM"
+	echo -e "MMMMMMMMMMMMMMMMMMMMMMMMMMMNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM${colorW}N**\$${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMMMMM"
+	echo -e "MMMMMMMMMMMMMMMMMMMMMMMMM${colorW}NFV${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM${colorW}*${bold}:${bold_reset}*\$${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMMMM"
+	echo -e "MMMMMMMMMMMMMMMMMMMMMMMM${colorW}N**N${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM${colorW}I${bold}:${bold_reset}**\$${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMMM"
+	echo -e "MMMMMMMMMMMMMMMMMMMMMMMN${colorW}***N${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM${colorW}VIN${colorBl}MMMMMM${colorW}*${bold}:${bold_reset}***${colorBl}NMMMMMMMMMMMMMMMMMMMMMMMMM"
+	echo -e "MMMMMMMMMMMMMMMMMMMMMMM${colorW}F${bold}:${bold_reset}**\$${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM${colorW}N*${bold}:${bold_reset}*N${colorBl}MMMM${colorW}N${bold}:::${bold_reset}**\$${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMM"
+	echo -e "MMMMMMMMMMMMMMMMMMMMMM${colorW}N${bold}::${bold_reset}**I${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM${colorW}I${bold}.::${bold_reset}*${colorBl}MMM${colorW}N*${bold}::${bold_reset}***F${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMM"
+	echo -e "MMMMMMMMMMMMMMMMMMMMMM${colorW}\$${bold}::${bold_reset}**:\$${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM${colorW}NI${bold}..:::${bold_reset}\$${colorBl}MM${colorW}I${bold}:::${bold_reset}***F${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMM"
+	echo -e "MMMMMMMMMMMMMMMMMMMMMM${colorW}\$${bold}:::${bold_reset}***N${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMMMMM${colorW}\$${bold}:..::::${bold_reset}FNI${bold}:::${bold_reset}***:\$${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMM"
+	echo -e "MMMMMMMMMMMMMMMMMMMMMM${colorW}\$${bold}:::${bold_reset}****N${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMMMM${colorW}\$\$VVII*V\$*${bold}:::${bold_reset}****:N${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMM"
+	echo -e "MMMMMMMMMMMMMMMMMMMMMMN${colorW}${bold}::::${bold_reset}****\$${colorBl}MMMMMMMMMMM${colorR}NN\$\$\$\$VVVFFFFFVVVV\$\$\$NNN${colorW}\$VI*****I${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMMM"
+	echo -e "MMMMMMMMMMMMMMMMMMMMMMM${colorW}*${bold}::::${bold_reset}***:I${colorBl}NMMMM${colorR}N\$\$VFIIIIIIIIIIIIIIIIIIIIIIIFV\$\$NN\$F*\$${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMMM"
+	echo -e "MMMMMMMMMMMMMMMMMMMMMMM${colorW}V${bold}:::::${bold_reset}*****\$N\$V${colorR}FIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIV\$\$NM${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMMM"
+	echo -e "MMMMMMMMMMMMMMMM${colorW}\$FN${colorBl}MMMMN${colorW}*${bold}:::::${bold_reset}*******${colorR}IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIFFIF\$\$N${colorBl}MN\$${colorW}VFIIIN${colorBl}MMMMMMMMMMMMMMM"
+	echo -e "MMMMMMMMMMNMMMMM${colorW}V${bold}::${bold_reset}F${colorBl}NMMM${colorW}\$${bold}::::::${bold_reset}********${colorR}IIIIIIIIIIIIIIII${colorG}FVV\$\$VVVF${colorR}IIIIIIIIIIIFFF\$${colorBl}NN${colorW}F***\$${colorBl}MMMMMMMMMMMMMMMM"
+	echo -e "MMMMMMMMMM${colorW}F\$${colorBl}MMMM${colorW}\$${bold}.:::${bold_reset}*${colorBl}VNMI${colorW}${bold}:::::::${bold_reset}*******${colorR}IFIIIIIIIIII${colorG}F\$\$\$\$\$\$\$\$\$\$\$\$\$${colorR}FIIIIIIIIFFIIF\$${colorW}NNFV${colorBl}MMMMMMMMMMMMMMMMM"
+	echo -e "MMMMMMMMMM${colorW}**\$${colorBl}MMMN${colorW}${bold}:.:::::${bold_reset}\$${colorBl}N*${colorW}${bold}:::::::${bold_reset}*******V${colorR}FIIIIIII${colorG}V\$\$\$\$\$\$\$\$\$\$\$VVVV\$\$V${colorR}IIIIIFFIIIFFF\$${colorBl}NMMMMMMMMMMMMMMMMMM"
+	echo -e "MMMMMMMMMM${colorW}I${bold}:${bold_reset}*${colorBl}VNMM${colorW}V${bold}..::${bold_reset}*NN${colorBl}VI${colorW}${bold}::::::::${bold_reset}*****F${colorR}VVFIIIIIV${colorG}\$\$\$\$\$\$${colorW}II*IV${colorBl}\$\$\$${colorG}VVVV\$V${colorR}IIIFFFIIIFFFFV${colorBl}NMMMMMMMMMMMMMMMMM"
+	echo -e "MMMMMMMMMM${colorW}\$${bold}::${bold_reset}**${colorBl}IV${colorW}\$VIIFN\$${colorR}FIII${colorW}${bold}:::::::${bold_reset}***I${colorR}VVVVVFFFIF${colorG}\$\$\$\$\$${colorW}I${bold}::::::${bold_reset}*${colorBl}\$\$\$${colorG}VVVF\$F${colorR}IFFIIFIIFFFIFF\$${colorBl}MMMMMMMMMMMMMMMM"
+	echo -e "MMMMMMMMMMM${colorW}V${bold}:::${bold_reset}*********${colorR}**III${colorW}*${bold}:::${bold_reset}***IV\$${colorR}VVVVVVFFF${colorG}\$\$VV\$\$${colorW}${bold}********${bold_reset}F${colorBl}\$\$\$${colorG}VFII\$${colorR}FFIIIFFFFFFIIFFVN${colorBl}MMMMMMMMMMMMMM"
+	echo -e "MMMMMMMMMMMM${colorW}F${bold}:::::${bold_reset}*********${colorR}FFIIIIFVVVVVVVVVFFFFF${colorG}\$\$VV${colorBl}\$\$F${colorW}${bold}****${bold_reset}III${colorBl}\$\$\$\$${colorG}FIII\$${colorR}FFFFFFFFIIFFFVVFVN${colorBl}MMMMMMMMMMMMM"
+	echo -e "MMMMMMMMMMMMM${colorW}\$*${bold}:::::::${bold_reset}*****${colorR}FVVIIIIIFFFVVVFFIFFFFV${colorG}\$VVV${colorBl}\$\$\$${colorW}${bold}VVVV${bold_reset}${colorBl}\$\$\$\$\$${colorG}II**FV${colorR}FFFFFFFIIIFVVFFVFV${colorBl}MMMMMMMMMMMMM"
+	echo -e "MMMMMMMMMMMMMMN${colorW}\$*${bold}::::::${bold_reset}****${colorR}VVVFIIIIIIIIIIIIIIFFFI${colorG}\$\$VVVV${colorBl}\$\$\$\$\$\$\$\$${colorG}F****I\$${colorR}FFFFFFFFFFFVVFFFVVI\$${colorBl}MMMMMMMMMMMM"
+	echo -e "MMMMMMMMMMMMMMMMMN${colorW}V*****IFVVVVVF${colorR}IIIIIIIIIIIIIIIIIIV${colorG}\$FIIIIIIII******F\$${colorR}FFFFFFFFFFVVVFVVVVVFIN${colorBl}MMMMMMMMMMM"
+	echo -e "MMMMMMMMMMMMMMMMMMN${colorR}II${colorW}FVVVVVVVVVV${colorR}FFFIIIIIIIIIIIIIIIIF${colorG}VVFI********IVV${colorR}FFFFFFFFV\$VVVVFFFVVVVVI\$${colorBl}MMMMMMMMMMM"
+	echo -e "MMMMMMMMMMMMMMMMMM${colorR}\$IIII${colorW}FVVVVVVV${colorR}FFFFFIIIIIIIIIIIIIIIIII${colorG}FVVVVFVVVV${colorR}FFFFFFFFFFF\$VVVVVFFVVVVVVFF${colorBl}MMMMMMMMMMM"
+	echo -e "MMMMMMMMMMMMMMMMMM${colorR}VFIIIIIIFFFFFFFFFIIIIIIIIIIIIIIIIIIIIIFFFFFFFVVFFFFFFFFF\$\$VVVVVVVVVVVVVVIN${colorBl}MMMMMMMMMM"
+	echo -e "MMMMMMMMMMMMMMMMMN${colorR}FFIIIIIIIIIIIIIIIIIIIIIIIII${colorBl}${bold}F\$\$\$V${bold_reset}${colorR}IIIIIIFFFFFFFVN\$FFFF${colorBl}${bold}VV\$N\$${bold_reset}${colorR}VVFFFFVVVVVVVVVI\$${colorBl}MMMMMMMMMM"
+	echo -e "MMMMMMMMMMMMMMMMMN${colorR}IFIIIIFFFIIIIIIIIIIIIIIIIII${colorBl}${bold}FFV\$\$\$V${bold_reset}${colorR}FFFIFFFFFV\$NNNN\$\$${colorBl}${bold}FIIVN${bold_reset}${colorR}\$VVFFFVVVVVVVVVVI\$${colorBl}MMMMMMMMMM"
+	echo -e "MMMMMMMMMMMMMMMMMN${colorR}FFIIIIIFFIIIIIIIIFFFIIIIIIIIFFFF${colorBl}${bold}V\$\$\$${bold_reset}${colorR}\$\$\$\$\$\$V${colorBl}${bold}\$\$\$\$\$${bold_reset}${colorR}\$\$\$\$${colorBl}${bold}**\$N\$${bold_reset}${colorR}VVVVVVVVVVV\$\$\$\$I\$${colorBl}MMMMMMMMMM"
+	echo -e "MMMMMMMMMMMMMMMMMM${colorR}VIIIIIIIFFIIFFFFIIFFFIIIIIIFFFFFFFF${colorBl}${bold}\$N\$\$F${colorW}::${colorBl}I\$\$\$\$\$${colorW}::${colorBl}\$\$\$\$\$N${bold_reset}${colorR}VVFFVVVVVVVVV\$\$VIN${colorBl}MMMMMMMMMM"
+	echo -e "MMMMMMMMMMMMMMMMMM${colorR}\$FIIIIIIFFIIIFFFIIIFFFIIFFFFFFFFFFFF${colorBl}${bold}\$N\$\$V${colorW}v${colorBl}\$\$\$\$\$\$${colorW}v${colorBl}\$\$\$\$\$N\$${bold_reset}${colorR}VVFVVVV\$\$VVVVV\$VI${colorBl}MMMMMMMMMMM"
+	echo -e "MMMMMMMMMMMMMMMMMMN${colorR}FFFIFFFFFIIFFFFFFFFFFFFFFIFFFFFFIFFFV${colorBl}${bold}\$\$\$\$\$\$\$${colorW}^${colorBl}\$\$\$\$V\$\$\$\$${bold_reset}${colorR}VVVVVV\$\$\$\$\$\$\$\$\$\$I\$${colorBl}MMMMMMMMMMM"
+	echo -e "MMMMMMMMMMMMMMMMMMM${colorR}\$FFFFFFFFFFFFIIIFFFFFFFIIIFFFFFIIIFFFFV${colorBl}${bold}\$NN\$F${colorW}::${colorBl}\$\$\$\$\$\$${bold_reset}${colorR}VVVVFFV\$\$VVVV\$\$\$\$VIN${colorBl}MMMMMMMMMMM"
+	echo -e "MMMMMMMMMMMMMMMMMMM${colorR}NFIIFVFFFFFFFIIIIFFFFFFFFFFFFFFFFFVVVVVVVV\$\$\$\$\$VVFVVVVFVVV\$\$\$\$\$VV\$\$\$\$I\$${colorBl}MMMMMMMMMMMM"
+	echo -e "MMMMMMMMMMMMMMMMMMMM${colorR}\$FFVFFIIIIFVFFFFVVVFFFFVVVFFFVVVVVVVFFVVVVVVVVVVVVVVVVVV\$\$\$\$\$\$\$\$\$\$\$IVM\$\$${colorBl}MMMMMMMMMM"
+	echo -e "MMMMMMMMMMMMMMMMMMMMM${colorR}\$FVVVFFVVVVVVVVVVVVFFFVVFFFFVVVVVVFFFVVVVFFVVVFFV\$\$\$VVV\$VV\$V\$\$\$\$\$IVN${colorW}\$I*V${colorBl}MMMMMMMMM"
+	echo -e "MMMMMMMMMMMMMMMMMMMMMM${colorR}\$FVVVVVFFFVVVVVFVVFFVVVVVVVVVVVVVVVVVVVVVVVVVVV\$\$\$\$V\$\$\$\$\$\$\$\$\$\$\$I\$${colorW}N\$I*I*VN${colorBl}MMMMMMM"
+	echo -e "MMMMMMMMMMMMMMMMMMMMMMM${colorR}NFFVVFFFVVVVFFFVVVVVVFVVVVVVVVVVVVVVVVVVVVV\$VV\$\$\$VV\$\$\$\$\$\$\$\$\$VI\$${colorW}MMN\$\$VVFVN${colorBl}MMMMMM"
+	echo -e "MMMMMMMMMMMMMMMMMMMMMMMMN${colorR}\$FVVVVVVFVVVVVVVVVFFFVVVVVVVVVVVV\$\$\$\$VVVVV\$\$\$V\$\$\$\$\$\$\$\$\$\$\$FFN${colorBl}MMMMMMMMMMMMMMMMM"
+	echo -e "MMMMMMMMMMMMMMMMMMMMMMN${colorW}*F${colorR}NNVFVVVVVVVVVVVVVVVVFFFFVV\$\$VVVV\$VV\$\$VVVVV\$\$\$\$\$\$\$\$\$\$\$\$\$VI\$${colorBl}NMMMMMMMMMMMMMMMMMM"
+	echo -e "MMMMMMMMMMMMMMMMMMMMN${colorW}*..*${colorR}VN\$VFV\$\$\$\$VVVV\$\$\$${colorW}I${bold}:::${bold_reset}****IV\$\$${colorR}\$V\$VV\$\$\$\$V\$\$\$\$\$\$\$\$\$\$\$\$\$VI\$${colorBl}NMMMMMMMMMMMMMMMMMMMM"
+	echo -e "MMMMMMMMMMMMMMMMMMMMM${colorW}NI${bold}..::::${bold_reset}${colorR}VM\$VFVVVVVV\$\$\$${colorW}\$*${bold}::::${bold_reset}*****\$\$${colorR}VV\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$VIF\$${colorBl}NMMMMMMMMMMMMMMMMMMMMMM"
+	echo -e "MMMMMMMMMMMMMMMMMMMM${colorW}F${bold}.::.:${bold_reset}*${colorBl}VNMMM${colorR}N\$FFV\$\$\$\$\$\$${colorW}*${bold}::::${bold_reset}****I\$\$${colorR}V\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$VFIV${colorBl}NMMMMMMMMMMMMMMMMMMMMMMMMM"
+	echo -e "MMMMMMMMMMMMMMMMMMM${colorW}\$**I\$${colorBl}NMMMMMMMMMMN${colorR}\$VFFV\$\$${colorW}*${bold}:::${bold_reset}****V\$\$${colorR}\$\$\$\$\$\$\$\$\$\$\$\$\$\$VFIF\$N${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMMMMM"
+	echo -e "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNN${colorR}\$VV${colorW}*${bold}:::${bold_reset}***${colorR}\$\$\$\$\$\$\$\$\$\$\$\$VVFFFV\$\$N${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM"
+	echo -e "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM${colorW}\$${bold}::${bold_reset}**${colorR}FVVVVVVVVVVVV\$\$\$NN${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM"
+	echo -e "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMN${colorW}${bold}:${bold_reset}*I${colorBl}NMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM"
+	echo -e "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM${colorW}*\$${colorBl}MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM"
+	echo -e "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM${reset}"
+	printf "${bold}Logo asciified by me, original: https://github.com/eccentric-j/doom-icon\n${bold_reset}"
 
-	status_msg "Papirus icons"
-	wget -qO- https://git.io/papirus-icon-theme-install | DESTDIR="$HOME/.icons" sh
-
-	status_msg "Vimix Cursors"
-	pushd $(mktemp -d /tmp/vimix.XXXXX || exit 1)
-	wget https://github.com/vinceliuice/Vimix-cursors/archive/refs/heads/master.zip
-	unzip master.zip
-	cd Vimix-cursors-master
-	./install.sh
+	status_msg "Getting all dependencies"
+	pushd ~/.config
+	git clone https://github.com/elken/doom
+	git clone https://github.com/elken/nvim
+	git clone https://github.com/doomemacs/doomemacs emacs
+	git clone --recursive https://github.com/sorin-ionescu/prezto zsh/prezto
+	git clone https://github.com/hlissner/zsh-autopair zsh/autopair
 	popd
 
-	status_msg "Nordic"
-	git clone https://github.com/EliverLara/Nordic ~/.themes/Nordic
-	ln -sf ~/.themes/Nordic-v40/gtk-4.0 ~/.config/gtk-4.0
-
-	header_msg "Last minute changes"
-	status_msg "Changing Paprius icons to Nordic"
-	git clone https://github.com/PapirusDevelopmentTeam/papirus-folders
-	pushd papirus-folders
-	./papirus-folders -C nordic
+	status_msg "Moving to SSH"
+	yadm remote set-url origin "git@github.com:elken/.files"
+	pushd ~/.config/doom
+	git remote set-url origin "git@github.com:elken/doom"
 	popd
-	rm -rf papirus-folders
+
+	status_msg "Checking OS"
+
+	system=$(uname -s)
+	distro=$(grep ^NAME /etc/os-release | cut -d= -f2)
+	variant=$(grep ^VARIANT_ID /etc/os-release | cut -d= -f2)
+
+	if [ $? -ne 0 ]; then
+		distro=""
+		variant=""
+	fi
+
+	printf "${colorB}Looks like ${colorW}${bold}${system}${bold_reset}${reset}\n"
+	printf "${colorB}${distro}${variant}${reset}\n"
+
+	status_msg "Sourcing shell config"
+	source $HOME/.zprofile
+
+	if [ "$system" = "Darwin" ]; then
+		if ! command -v brew >/dev/null 2>&1; then
+			status_msg "Homebrew not installed, installing now"
+			/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+		fi
+
+		if [ -f "$HOME/.Brewfile" ]; then
+			echo "Install homebrew packages"
+			brew bundle --global
+		fi
+	fi
+
+	if ! command -v doom >/dev/null 2>&1; then
+		error_msg "Not ready to unleash hell."
+		printf "Add ${bold}doom${bold_reset} to path \n(Current value: ${PATH})\n"
+		exit 1
+	fi
+
+	status_msg "Getting Doom ready"
+	doom sync
+
+	if ! command -v flatpak >/dev/null 2>&1; then
+		flatpak remote-delete fedora --force
+		flatpak install --noninteractive --reinstall flathub $(flatpak list --app-runtime=org.fedoraproject.Platform --columns=application | tail -n +1)
+		flatpak install --noninteractive flathub org.mozilla.firefox org.mozilla.Thunderbird org.libreoffice.LibreOffice com.github.tchx84.Flatseal com.slack.Slack com.spotify.Client io.podman_desktop.PodmanDesktop net.lutris.Lutris org.inkscape.Inkscape org.kde.kdenlive org.videolan.VLC
+	fi
+
 	touch $HOME/.config/.bootstrap-done
+else
+	status_msg "Already ran, if this is an error remove $HOME/.config/.bootstrap-done"
 fi

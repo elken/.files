@@ -8,6 +8,7 @@
 
 [core]
 	pager = "delta"
+    attributesfile = ~/.config/git/attributes
 
 [delta]
 	line-numbers = true
@@ -16,6 +17,12 @@
 
 [diff "org"]
 	xfuncname = "^(\\*+ +.*)$"
+
+[diff "common-lisp"]
+    xfuncname="^\\((def\\S+\\s+\\S+)"
+
+[diff "elisp"]
+    xfuncname="^\\((((def\\S+)|use-package)\\s+\\S+)"
 
 [github]
 	user = "elken"
