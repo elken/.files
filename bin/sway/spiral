@@ -1,0 +1,39 @@
+#!/usr/bin/env bb
+(require '[babashka.process :as p :refer [shell process destroy-tree]]
+         '[clojure.java.io :as io])
+
+(def window-stream
+  (process
+   {:err :inherit
+    :shutdown destroy-tree}
+   (str "swaymsg -t subscribe -m \"['window']\"")))
+
+(defn- run-command [cmd]
+  (as-> cmd clients
+    (shell {:out :string} clients)
+    (:out clients)
+    (json/parse-string clients true)))
+
+(defn- get-tree []
+  (run-command "swaymsg -t get_tree"))
+
+(println "Listening for window events...")
+
+(with-open [rdr (io/reader (:out window-stream))]
+  (binding [*in* rdr]
+    (loop []
+      (when-let [line (-> (read-line) (json/parse-string true))]
+        (when (= "new" (:change line))
+          (println
+           (keep (fn [{:keys [focused id]
+                       {:keys [width height]} :rect}]
+                   (when focused
+                     (merge
+                      {:id id}
+                      (-> "swaymsg [con_id=%s] split%s"
+                          (format id
+                                  (if (> height width) "v" "h"))
+                          run-command
+                          first))))
+                 (tree-seq map? :nodes (get-tree)))))
+        (recur)))))
