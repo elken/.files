@@ -1531,7 +1531,7 @@
   #
   # Type `p10k help segment` for documentation and a more sophisticated example.
   function prompt_toolbox() {
-    if [ -f /run/.containerenv ] && [ -f /run/.toolboxenv ]; then
+    if [ -f /run/.containerenv ]; then
       p10k segment -f 33 -i '⬢' -t $(grep name= /run/.containerenv | cut -d\" -f2)
     fi
   }
