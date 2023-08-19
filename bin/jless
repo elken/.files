@@ -1,0 +1,12 @@
+#!/usr/bin/env bb
+(require '[clojure.pprint :as pprint]
+         '[clojure.java.io :as io])
+
+(with-open [r (io/reader *in*)]
+  (loop []
+    (try
+      (when (.ready r)
+        (when-let [line (-> (slurp r) (json/parse-string true))]
+          (pprint/pprint line)))
+      (catch java.io.IOException _))
+    (recur)))
