@@ -31,7 +31,6 @@
     },
     "widgets": [
         "menubar#label",
-        "volume",
         "mpris",
         "title",
         "dnd",
@@ -51,11 +50,8 @@
             "text": "Control Center"
         },
         "mpris": {
-            "image-size": 96,
+            "image-size": 64,
             "image-radius": 12
-        },
-        "volume": {
-            "label": " "
         },
         "menubar#label": {
             "menu#power-buttons": {
@@ -81,7 +77,7 @@
                 ]
             },
             "menu#powermode-buttons": {
-                "label": "",
+                "label": "",
                 "position": "left",
                 "actions": [
                     {
