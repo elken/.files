@@ -3,8 +3,8 @@
 autoload -U add-zsh-hook
 add-zsh-hook -Uz chpwd (){ print -Pn "\e]2;%m:%2~\a" }
 
-vterm_printf() {
-  if [ -n "$TMUX" ]; then
+function vterm_printf(){
+    if [ -n "$TMUX" ] && ([ "${TERM%%-*}" = "tmux" ] || [ "${TERM%%-*}" = "screen" ] ); then
         # Tell tmux to pass the escape sequences through
         printf "\ePtmux;\e\e]%s\007\e\\" "$1"
     elif [ "${TERM%%-*}" = "screen" ]; then
@@ -24,6 +24,13 @@ vterm_cmd() {
     done
     vterm_printf "51;E$vterm_elisp"
 }
+
+vterm_prompt_end() {
+    vterm_printf "51;A ❯ "
+}
+
+setopt PROMPT_SUBST
+PROMPT=$PROMPT'%{$(vterm_prompt_end)%}'
 
 find_file() {
     vterm_cmd find-file "$(realpath "${@:-.}")"
