@@ -1,0 +1,14 @@
+profile {
+    output eDP-1 mode 3840x2160@59.997002 position 0,0
+    output DP-2 mode 2560x1440 position 1920,0
+    output DP-3 mode 2560x1080 position 4480,0
+}
+
+profile {
+    output eDP-1 mode 3840x2160@59.997002 position 0,0
+    output DP-3 mode 2560x1080 position 1920,0
+}
+
+profile {
+    output eDP-1 mode 3840x2160@59.997002 position 0,0
+}
