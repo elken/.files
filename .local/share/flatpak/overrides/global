@@ -1,5 +1,5 @@
 [Context]
-filesystems=/usr/share/themes:ro;~/.local/share/themes:ro;~/.local/share/icons:ro;/usr/share/icons/:ro;~/.themes:ro;~/.icons:ro;xdg-config/gtk-3.0
+filesystems=/usr/share/themes:ro;~/.local/share/themes:ro;~/.local/share/icons:ro;/usr/share/icons/:ro;~/.themes:ro;~/.icons:ro;xdg-config/gtk-3.0;~/.fonts;~/.local/share/fonts
 
 [Environment]
 GTK_THEME=Orchis-Purple-Dark-Nord
