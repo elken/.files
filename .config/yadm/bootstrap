@@ -136,7 +136,7 @@ if ! -e "$HOME/.config/.bootstrap-done"; then
 	popd
 
 	status_msg "Sourcing shell config"
-	source $HOME.config/zsh/.zprofile
+	source $HOME/.config/zsh/.zprofile
 
 	if [ "$system" = "Darwin" ]; then
 		if ! command -v brew >/dev/null 2>&1; then
