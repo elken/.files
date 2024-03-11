@@ -2,7 +2,7 @@
 filesystems=/usr/share/themes:ro;~/.local/share/themes:ro;~/.local/share/icons:ro;/usr/share/icons/:ro;~/.themes:ro;~/.icons:ro;xdg-config/gtk-3.0
 
 [Environment]
-GTK_THEME=Nordic
+GTK_THEME=Orchis-Purple-Dark-Nord
 GTK_THEME_VARIANT=dark
 ICON_THEME=Nordzy-purple-dark
 XCURSOR_THEME=Nordzy-cursors
