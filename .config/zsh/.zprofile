@@ -64,6 +64,7 @@ if [[ "$INSIDE_EMACS" != 'vterm' ]]; then
   # Set the list of directories that Zsh searches for programs.
   path=(
     $HOME/.babashka/bbin/bin
+    $HOME/.qlot/bin
     $HOME/.config/emacs/bin
     $HOME/.cargo/bin
     $HOME/bin
