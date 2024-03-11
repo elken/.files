@@ -1,31 +1,24 @@
-[[language]]
-name = "elixir"
-scope = "source.elixir"
-injection-regex = "(elixir|ex)"
-file-types = ["ex", "exs", "html.heex"]
-shebangs = ["elixir"]
-roots = ["mix.exs"]
-auto-format = true
-diagnostic-severity = "Hint"
-comment-token = "#"
-indent = {tab-width = 2, unit = " "}
-language-servers = ["elixir-ls"]
-
 [language-server.tailwind-heex]
 command = "tailwindcss-language-server"
 args = ["--stdio"]
 
+[language-server.emmet-lsp]
+command = "emmet-language-server"
+args = ["--stdio"]
+
 [[language]]
 name = "elixir"
-language-id = "phoenix-heex"
-language-servers = ["tailwind-heex", "elixir-ls", "vscode-html-language-server"]
+file-types = ["ex", "exs", "html.heex"]
 auto-format = true
+diagnostic-severity = "Hint"
+
+# [[language]]
+# name = "elixir"
+# language-id = "phoenix-heex"
+# language-servers = ["tailwind-heex", "elixir-ls", "vscode-html-language-server", "emmet-ls"]
+# auto-format = true
 
 [[language]]
 name = "heex"
-scope = "source.heex"
-injection-regex = "heex"
-language-id= "phoenix-heex"
-language-servers = ["tailwind-heex", "elixir-ls", "vscode-html-language-server"]
-comment-token = "<%!--"
+language-servers = ["tailwind-heex", "elixir-ls", "vscode-html-language-server", "emmet-lsp"]
 auto-format = true
