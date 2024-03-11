@@ -9,6 +9,7 @@
 [core]
 	pager = "delta"
     attributesfile = ~/.config/git/attributes
+	excludesFiles = ~/.config/git/ignore
 
 [delta]
 	line-numbers = true
