@@ -1,0 +1,88 @@
+theme = "nord-night"
+
+[editor]
+line-number = "relative"
+auto-save = true
+completion-replace = true
+undercurl = true
+true-color = true
+bufferline = "multiple"
+color-modes = true
+
+[editor.cursor-shape]
+insert = "bar"
+select = "underline"
+
+[editor.statusline]
+left = ["mode", "spinner", "diagnostics", "register"]
+center = ["file-type", "version-control", "file-name", "read-only-indicator", "file-modification-indicator"]
+right = ["selections", "file-encoding", "position"]
+separator = "│"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+[editor.lsp]
+display-messages = true
+display-inlay-hints = true
+
+[editor.file-picker]
+hidden = false
+
+[editor.indent-guides]
+render = true
+character = "▏"
+skip-levels = 1
+
+[keys.normal]
+C-s = ":w!"
+C-u = ["half_page_up", "goto_window_center"]
+C-d = ["half_page_down", "goto_window_center"]
+C-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+C-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+D = ["extend_to_line_end", "delete_selection"]
+X = "extend_line_above"
+# One to toy around with, I prefer the behaviour but I feel like it's a smell
+# esc = ["collapse_selection", "keep_primary_selection"]
+
+p = "paste_clipboard_after"
+P = "paste_clipboard_before"
+y = "yank_main_selection_to_clipboard"
+
+[keys.normal."space".c]
+f = ":open ~/.config/helix"
+r = [":config-reload", ":reload-all"]
+
+[keys.normal.space]
+z = [
+  "goto_first_nonwhitespace",
+  "extend_to_line_end",
+  ":pipe-to xargs -d'\n' -I {} -- zellij r -f -- zsh -c '{}'"
+]
+
+[keys.normal.space.b]
+b = "buffer_picker"
+n = "goto_next_buffer"
+p = "goto_previous_buffer"
+d = ":buffer-close"
+
+[keys.normal.g]
+a = "code_action"
+q = ":reflow"
+g = ":sh zrf lazygit"
+
+[keys.insert]
+C-a = "goto_first_nonwhitespace"
+C-e = "goto_line_end_newline"
+C-f = "move_char_right"
+C-b = "move_char_left"
+C-n = "move_line_down"
+C-p = "move_line_up"
+
+[keys.select]
+k = ["extend_line_up", "extend_to_line_bounds"]
+j = ["extend_line_down", "extend_to_line_bounds"]
+d = ["yank_main_selection_to_clipboard", "delete_selection"]
+y = "yank_main_selection_to_clipboard"
+p = "replace_selections_with_clipboard"
+P = "paste_clipboard_before"

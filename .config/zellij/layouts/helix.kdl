@@ -1,0 +1,13 @@
+layout {
+    pane close_on_exit=true {
+        command "hx"
+        args "."
+    }
+    pane split_direction="vertical" size="20%" {
+
+    } 
+
+    pane size=1 borderless=true {
+        plugin location="zellij:compact-bar"
+    }
+}

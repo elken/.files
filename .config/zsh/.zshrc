@@ -56,7 +56,7 @@ done
 
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='fd --type f'
+export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
 export FZF_DEFAULT_OPTS="--height=40% --preview='bat {}' --preview-window=right:60%:wrap"
 
 # NVM
@@ -79,3 +79,7 @@ if [[ -e ~/.config/zsh/autopair ]]; then
   source ~/.config/zsh/autopair/autopair.zsh
   autopair-init
 fi
+
+unalias p
+
+fpath+=("${ZDOTDIR:-$HOME}/completions")

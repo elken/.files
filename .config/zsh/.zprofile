@@ -41,7 +41,14 @@ typeset -gU cdpath fpath mailpath path
 #   $cdpath
 # )
 
+fpath=(
+  $fpath
+)
+
 if [[ "$INSIDE_EMACS" != 'vterm' ]]; then
+  export VISUAL='hx'
+  export EDITOR='hx'
+
   if [[ "$OSTYPE" == darwin* ]]; then
       path=(
           /usr/local/opt/coreutils/libexec/gnubin
