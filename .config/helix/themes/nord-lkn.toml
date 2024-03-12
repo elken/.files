@@ -1,0 +1,29 @@
+# Nord
+#
+# Based on the Nord Night theme, with minor modifications.
+
+inherits = 'nord-night'
+
+'operator' = 'nord12'
+'punctuation.bracket' = { fg = 'nord6', modifiers = ["bold"]}
+
+'constant' = 'nord13'
+'constant.builtin.boolean' = 'nord13'
+'constant.numeric' = 'nord15'
+
+'keyword.control' = 'nord11'
+'keyword.control.conditional' = 'nord11'
+'keyword.control.exception' = 'nord11'
+'keyword.control.repeat' = 'nord11'
+'keyword.control.return' = 'nord11'
+
+'variable' = { fg = "nord4", modifiers = ["bold"]}
+'variable.other.member' = { fg = "nord6", modifiers = ["bold"]}
+'variable.parameter' = 'nord15'
+
+'type' = { fg = 'nord15', modifiers = ["bold"]}
+'namespace' = 'nord15'
+
+[palette]
+nord0 = '#252933'
+nord4 = '#C0C5CF'
