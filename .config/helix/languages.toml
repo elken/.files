@@ -5,18 +5,16 @@ args = ["--stdio"]
 [language-server.emmet-lsp]
 command = "emmet-language-server"
 args = ["--stdio"]
+config = { showSuggestionsAsSnippets = true }
+
+[language-server.elixir-ls]
+config = { elixirLS.dialyzerEnabled = true }
 
 [[language]]
 name = "elixir"
 file-types = ["ex", "exs", "html.heex"]
 auto-format = true
 diagnostic-severity = "Hint"
-
-# [[language]]
-# name = "elixir"
-# language-id = "phoenix-heex"
-# language-servers = ["tailwind-heex", "elixir-ls", "vscode-html-language-server", "emmet-ls"]
-# auto-format = true
 
 [[language]]
 name = "heex"
