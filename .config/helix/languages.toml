@@ -10,6 +10,10 @@ config = { showSuggestionsAsSnippets = true }
 [language-server.elixir-ls]
 config = { elixirLS.dialyzerEnabled = true }
 
+[language-server.typst-lsp]
+command = "typst-lsp"
+config = { exportPdf = "onType" }
+
 [[language]]
 name = "elixir"
 file-types = ["ex", "exs", "html.heex"]
@@ -18,5 +22,51 @@ diagnostic-severity = "Hint"
 
 [[language]]
 name = "heex"
-language-servers = ["tailwind-heex", "elixir-ls", "vscode-html-language-server", "emmet-lsp"]
+language-servers = [
+  "tailwind-heex",
+  "elixir-ls",
+  "vscode-html-language-server",
+  "emmet-lsp",
+]
 auto-format = true
+
+[[language]]
+name = "bash"
+indent = { tab-width = 4, unit = "    " }
+formatter = { command = "shfmt", args = ["-ci", "-i", "4"] }
+auto-format = true
+
+[[language]]
+name = "lua"
+formatter = { command = "stylua", args = ["-"] }
+auto-format = true
+
+[[language]]
+name = "toml"
+formatter = { command = "taplo", args = ["format", "-"] }
+auto-format = true
+
+[[language]]
+name = "typst"
+grammar = "typst"
+scope = "source.typst"
+file-types = ["typst", "typ"]
+indent = { tab-width = 2, unit = "  " }
+comment-token = "//"
+injection-regex = "typ(st)?"
+roots = ["typst.toml"]
+language-servers = ["typst-lsp"]
+formatter = { command = "typstfmt" }
+# auto-format = true
+
+[language.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+'$' = '$'
+'"' = '"'
+
+[[grammar]]
+name = "typst"
+source.git = "https://github.com/uben0/tree-sitter-typst"
+source.rev = "master"
