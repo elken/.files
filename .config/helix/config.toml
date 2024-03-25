@@ -15,7 +15,13 @@ select = "underline"
 
 [editor.statusline]
 left = ["mode", "spinner", "diagnostics", "register"]
-center = ["file-type", "version-control", "file-name", "read-only-indicator", "file-modification-indicator"]
+center = [
+  "file-type",
+  "file-name",
+  "version-control",
+  "read-only-indicator",
+  "file-modification-indicator",
+]
 right = ["selections", "file-encoding", "position"]
 separator = "│"
 mode.normal = "NORMAL"
@@ -25,6 +31,7 @@ mode.select = "SELECT"
 [editor.lsp]
 display-messages = true
 display-inlay-hints = true
+display-signature-help-docs = false
 
 [editor.file-picker]
 hidden = false
@@ -39,7 +46,12 @@ C-s = ":w!"
 C-u = ["half_page_up", "goto_window_center"]
 C-d = ["half_page_down", "goto_window_center"]
 C-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
-C-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+C-k = [
+  "extend_to_line_bounds",
+  "delete_selection",
+  "move_line_up",
+  "paste_before",
+]
 D = ["extend_to_line_end", "delete_selection"]
 X = "extend_line_above"
 # One to toy around with, I prefer the behaviour but I feel like it's a smell
@@ -55,7 +67,7 @@ f = "file_picker"
 z = [
   "goto_first_nonwhitespace",
   "extend_to_line_end",
-  ":pipe-to xargs -d'\n' -I {} -- zellij r -f -- zsh -c '{}'"
+  ":pipe-to xargs -d'\n' -I {} -- zellij r -f -- zsh -c '{}'",
 ]
 
 [keys.normal.space.b]
