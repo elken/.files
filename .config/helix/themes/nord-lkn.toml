@@ -5,7 +5,7 @@
 inherits = 'nord-night'
 
 'operator' = 'nord12'
-'punctuation.bracket' = { fg = 'nord6', modifiers = ["bold"]}
+'punctuation.bracket' = { fg = 'nord6', modifiers = ["bold"] }
 
 'constant' = 'nord13'
 'constant.builtin.boolean' = 'nord13'
@@ -17,12 +17,19 @@ inherits = 'nord-night'
 'keyword.control.repeat' = 'nord11'
 'keyword.control.return' = 'nord11'
 
-'variable' = { fg = "nord4", modifiers = ["bold"]}
-'variable.other.member' = { fg = "nord6", modifiers = ["bold"]}
+'variable' = { fg = "nord4", modifiers = ["bold"] }
+'variable.other.member' = { fg = "nord6", modifiers = ["bold"] }
 'variable.parameter' = 'nord15'
 
-'type' = { fg = 'nord15', modifiers = ["bold"]}
+'type' = { fg = 'nord15', modifiers = ["bold"] }
 'namespace' = 'nord15'
+
+'markup.heading.1' = 'nord9'
+'markup.heading.2' = 'nord15'
+'markup.heading.3' = 'nord10'
+'markup.heading.4' = 'nord7'
+'markup.heading.5' = 'nord8'
+'markup.heading.6' = 'nord14'
 
 [palette]
 nord0 = '#252933'
