@@ -24,3 +24,4 @@ alias workflow="g add .;gca;gp"
 alias ccm64='sudo ccm64'
 
 alias yl='lazygit --work-tree ~ --git-dir ~/.local/share/yadm/repo.git'
+alias nv='env TERM=wezterm nvim'
