@@ -14,6 +14,9 @@ config = { elixirLS.dialyzerEnabled = true }
 command = "typst-lsp"
 config = { exportPdf = "onType" }
 
+[language-server.solargraph]
+config = { diagnostics = true, formatting = false }
+
 [[language]]
 name = "elixir"
 file-types = ["ex", "exs", "html.heex"]
@@ -70,3 +73,15 @@ formatter = { command = "typstfmt" }
 name = "typst"
 source.git = "https://github.com/uben0/tree-sitter-typst"
 source.rev = "master"
+
+[[language]]
+name = "ruby"
+formatter = { command = "rubocop", args = [
+  "--stdin",
+  "foo.rb",
+  "-a",
+  "--stderr",
+  "--fail-level",
+  "fatal",
+] }
+auto-format = true
