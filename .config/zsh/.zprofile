@@ -63,6 +63,7 @@ if [[ "$INSIDE_EMACS" != 'vterm' ]]; then
 
   # Set the list of directories that Zsh searches for programs.
   path=(
+    /home/linuxbrew/.linuxbrew/lib/ruby/gems/3.3.0/bin
     $HOME/.babashka/bbin/bin
     $HOME/.qlot/bin
     $HOME/.config/emacs/bin
