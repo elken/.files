@@ -3,9 +3,17 @@ x-scheme-handler/sms=org.gnome.Shell.Extensions.GSConnect.desktop;
 x-scheme-handler/tel=org.gnome.Shell.Extensions.GSConnect.desktop;
 text/calendar=org.gnome.Calendar.desktop;
 x-scheme-handler/mailto=org.mozilla.Thunderbird.desktop;
+x-scheme-handler/http=org.mozilla.firefox.desktop;
+text/html=org.mozilla.firefox.desktop;
+application/xhtml+xml=org.mozilla.firefox.desktop;
+x-scheme-handler/https=org.mozilla.firefox.desktop;
 
 [Default Applications]
-x-scheme-handler/nxm=ModOrganizer-steamtinkerlaunch-dl.desktop
-x-scheme-handler/nxm-protocol=ModOrganizer-steamtinkerlaunch-dl.desktop
+x-scheme-handler/nxm=vortex-steamtinkerlaunch-dl.desktop
+x-scheme-handler/nxm-protocol=vortex-steamtinkerlaunch-dl.desktop
 text/calendar=org.gnome.Calendar.desktop
 x-scheme-handler/mailto=org.mozilla.Thunderbird.desktop
+x-scheme-handler/http=org.mozilla.firefox.desktop
+text/html=org.mozilla.firefox.desktop
+application/xhtml+xml=org.mozilla.firefox.desktop
+x-scheme-handler/https=org.mozilla.firefox.desktop
