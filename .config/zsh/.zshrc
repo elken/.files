@@ -70,7 +70,7 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+# export PATH="$PATH:$HOME/.rvm/bin"
 
 # opam configuration
 [[ ! -r /home/elken/.opam/opam-init/init.zsh ]] || source /home/elken/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
@@ -83,4 +83,6 @@ fi
 unalias p
 
 fpath+=("${ZDOTDIR:-$HOME}/completions")
+
+test -e ~/.rbenv/bin/rbenv && eval "$(~/.rbenv/bin/rbenv init - zsh)"
 test -e $(which zoxide) && eval "$(zoxide init zsh)"
