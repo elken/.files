@@ -83,3 +83,4 @@ fi
 unalias p
 
 fpath+=("${ZDOTDIR:-$HOME}/completions")
+test -e $(which zoxide) && eval "$(zoxide init zsh)"
