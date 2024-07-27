@@ -28,7 +28,7 @@ wezterm.on("trigger-helix-with-scrollback", function(window, pane)
   -- Open a new window running helix and tell it to open the file
   window:perform_action(
     act.SpawnCommandInNewTab({
-      args = { "hx ", string.format("+%s", config.scrollback_lines or 3500), name },
+      args = { "nvim", string.format("+%s", config.scrollback_lines or 3500), name },
     }),
     pane
   )
