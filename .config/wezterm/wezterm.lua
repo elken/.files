@@ -28,7 +28,7 @@ wezterm.on("trigger-helix-with-scrollback", function(window, pane)
   -- Open a new window running helix and tell it to open the file
   window:perform_action(
     act.SpawnCommandInNewTab({
-      args = { "hx ", string.format("+%s", config.scrollback_lines or 3500), name },
+      args = { "nvim", string.format("+%s", config.scrollback_lines or 3500), name },
     }),
     pane
   )
@@ -47,7 +47,7 @@ config.enable_kitty_keyboard = true
 
 config.debug_key_events = true
 
-config.color_scheme = "nord"
+config.colors = wezterm.color.load_scheme(wezterm.home_dir .. "/.config/wezterm/colors/nordfox.toml")
 
 config.font = wezterm.font_with_fallback({
   {
@@ -95,12 +95,6 @@ config.window_frame = {
   font_size = 11.0,
   active_titlebar_bg = "2E3440",
   inactive_titlebar_bg = "#2E3440",
-}
-
-config.colors = {
-  tab_bar = {
-    inactive_tab_edge = "#2E3440",
-  },
 }
 config.window_background_opacity = 0.8
 config.macos_window_background_blur = 20
