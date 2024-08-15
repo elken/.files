@@ -25,4 +25,4 @@ if [[ -o INTERACTIVE && -t 2 ]]; then
 
 fi >&2
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+test -e $(which rbenv) && eval "$(rbenv init --no-rehash - zsh)"

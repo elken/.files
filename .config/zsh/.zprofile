@@ -46,8 +46,8 @@ fpath=(
 )
 
 if [[ "$INSIDE_EMACS" != 'vterm' ]]; then
-  export VISUAL='hx'
-  export EDITOR='hx'
+  export VISUAL='nvim'
+  export EDITOR='nvim'
 
   if [[ "$OSTYPE" == darwin* ]]; then
       path=(
@@ -59,10 +59,12 @@ if [[ "$INSIDE_EMACS" != 'vterm' ]]; then
           $path
       )
       export GPG_TTY=$(tty)
+      export DYLD_LIBRARY_PATH="$(brew --prefix)/lib:$DYLD_LIBRARY_PATH"
   fi
 
   # Set the list of directories that Zsh searches for programs.
   path=(
+    $HOME/.local/share/nvim/mason/bin
     /home/linuxbrew/.linuxbrew/lib/ruby/gems/3.3.0/bin
     $HOME/.babashka/bbin/bin
     $HOME/.qlot/bin
@@ -81,9 +83,9 @@ if [[ "$INSIDE_EMACS" != 'vterm' ]]; then
     $path
   )
 
-  export GPG_TTY=$(tty)
 
 fi
+  export GPG_TTY=$(tty)
 #
 # Less
 #

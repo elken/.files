@@ -84,5 +84,4 @@ unalias p
 
 fpath+=("${ZDOTDIR:-$HOME}/completions")
 
-test -e ~/.rbenv/bin/rbenv && eval "$(~/.rbenv/bin/rbenv init - zsh)"
 test -e $(which zoxide) && eval "$(zoxide init zsh)"
