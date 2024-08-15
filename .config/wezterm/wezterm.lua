@@ -49,6 +49,32 @@ config.debug_key_events = true
 
 config.colors = wezterm.color.load_scheme(wezterm.home_dir .. "/.config/wezterm/colors/nordfox.toml")
 
+-- Terminal hyperlinks
+-- https://gist.github.com/egmontkob/eb114294efbcd5adb1944c9f3cb5feda
+-- printf '\e]8;;http://example.com\e\\This is a link\e]8;;\e\\\n'
+
+-- Use the defaults as a base.  https://wezfurlong.org/wezterm/config/lua/config/hyperlink_rules.html
+config.hyperlink_rules = wezterm.default_hyperlink_rules()
+
+-- make username/project paths clickable. this implies paths like the following are for github.
+-- ( "nvim-treesitter/nvim-treesitter" | wbthomason/packer.nvim | wez/wezterm | "wez/wezterm.git" )
+-- as long as a full url hyperlink regex exists above this it should not match a full url to
+-- github or gitlab / bitbucket (i.e. https://gitlab.com/user/project.git is still a whole clickable url)
+
+-- Regex syntax:  https://docs.rs/regex/latest/regex/#syntax and https://docs.rs/fancy-regex/latest/fancy_regex/#syntax
+-- Lua's [[ ]] literal strings prevent character [[:classes:]] :(
+-- To avoid "]]] at end, use "[a-z].{0}]]"
+-- https://www.lua.org/pil/2.4.html#:~:text=bracketed%20form%20may%20run%20for%20several%20lines%2C%20may%20nest
+
+table.insert(config.hyperlink_rules, {
+  -- https://github.com/shinnn/github-username-regex  https://stackoverflow.com/a/64147124/5353461
+  regex = [[(^|(?<=[\[(\s'"]))([0-9A-Za-z][-0-9A-Za-z]{0,38})/([A-Za-z0-9_.-]{1,100})((?=[])\s'".!?])|$)]],
+  --  is/good  0valid0/-_.reponname  /bad/start  -bad/username  bad/end!  too/many/parts -bad/username
+  --  [wraped/name] (aa/bb) 'aa/bb' "aa/bb"  end/punct!  end/punct.
+  format = "https://www.github.com/$2/$3/",
+  -- highlight = 0,  -- highlight this regex match group, use 0 for all
+})
+
 config.font = wezterm.font_with_fallback({
   {
     family = "Monaspace Neon",
@@ -165,6 +191,30 @@ config.keys = {
   { key = "j", mods = "LEADER", action = wezterm.action({ ActivatePaneDirection = "Down" }) },
   { key = "k", mods = "LEADER", action = wezterm.action({ ActivatePaneDirection = "Up" }) },
   { key = "l", mods = "LEADER", action = wezterm.action({ ActivatePaneDirection = "Right" }) },
+}
+
+config.mouse_bindings = {
+  -- Change the default click behavior so that it only selects
+  -- text and doesn't open hyperlinks
+  {
+    event = { Up = { streak = 1, button = "Left" } },
+    mods = "NONE",
+    action = act.CompleteSelection("PrimarySelection"),
+  },
+
+  -- and make CTRL-Click open hyperlinks
+  {
+    event = { Up = { streak = 1, button = "Left" } },
+    mods = "CTRL",
+    action = act.OpenLinkAtMouseCursor,
+  },
+
+  -- Disable the 'Down' event of CTRL-Click to avoid weird program behaviors
+  {
+    event = { Down = { streak = 1, button = "Left" } },
+    mods = "CTRL",
+    action = act.Nop,
+  },
 }
 
 config.ssh_domains = {
