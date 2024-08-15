@@ -131,6 +131,7 @@ sketch
 # Session
 Session.vim
 Sessionx.vim
+.nvim/session
 
 # Temporary
 .netrwhist
