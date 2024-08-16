@@ -6,6 +6,12 @@ local io = require("io")
 local os = require("os")
 local act = wezterm.action
 
+local fh, _ = assert(io.popen("uname -o 2>/dev/null", "r"))
+local os_name = "Windows"
+if fh then
+  os_name = fh:read()
+end
+
 wezterm.on("gui-startup", function(cmd)
   local _, _, window = mux.spawn_window(cmd or {})
   window:gui_window():maximize()
@@ -84,7 +90,11 @@ config.font = wezterm.font_with_fallback({
   "Noto Color Emoji",
 })
 
-config.font_size = 16
+if os_name == "GNU/Linux" then
+  config.font_size = 14
+else
+  config.font_size = 16
+end
 
 config.font_rules = {
   { -- Italic
@@ -122,9 +132,12 @@ config.window_frame = {
   active_titlebar_bg = "2E3440",
   inactive_titlebar_bg = "#2E3440",
 }
-config.window_background_opacity = 0.8
-config.macos_window_background_blur = 20
-config.window_decorations = "RESIZE|MACOS_FORCE_ENABLE_SHADOW"
+
+if os_name == "OSX" then
+  config.window_background_opacity = 0.8
+  config.macos_window_background_blur = 20
+  config.window_decorations = "RESIZE|MACOS_FORCE_ENABLE_SHADOW"
+end
 
 config.hide_tab_bar_if_only_one_tab = true
 config.hide_mouse_cursor_when_typing = false
@@ -232,14 +245,16 @@ config.underline_position = "-3"
 config.warn_about_missing_glyphs = false
 config.enable_kitty_graphics = true
 
---local success, stdout, _ = wezterm.run_child_process({ "gsettings", "get", "org.gnome.desktop.interface", "cursor-theme" })
---if success then
---    config.xcursor_theme = stdout:gsub("'(.+)'\n", "%1")
---end
---
---local success, stdout, _ = wezterm.run_child_process({ "gsettings", "get", "org.gnome.desktop.interface", "cursor-size" })
---if success then
---    config.xcursor_size = tonumber(stdout)
---end
+if os_name == "GNU/Linux" then
+  local success, stdout, _ = wezterm.run_child_process({ "gsettings", "get", "org.gnome.desktop.interface", "cursor-theme" })
+  if success then
+    config.xcursor_theme = stdout:gsub("'(.+)'\n", "%1")
+  end
+
+  local success, stdout, _ = wezterm.run_child_process({ "gsettings", "get", "org.gnome.desktop.interface", "cursor-size" })
+  if success then
+    config.xcursor_size = tonumber(stdout)
+  end
+end
 
 return config
