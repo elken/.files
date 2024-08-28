@@ -1,3 +1,4 @@
+autoload -Uz zmv
 # Load SSH/GPG keys
 eval "$(keychain --eval --quiet --agents ssh,gpg ~/.ssh/git)"
 
