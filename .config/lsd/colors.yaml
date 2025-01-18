@@ -1,0 +1,38 @@
+user: 75   # Brighter blue
+group: 75   # Brighter blue
+permission:
+  read: 114    # Bright frost
+  write: 179   # Bright yellow
+  exec: 168    # Vibrant red
+  exec-sticky: 183  # Bright snow
+  no-access: 237   # Dark but visible
+  octal: 116       # Bright frost
+  acl: 115         # Bright frost
+  context: 147     # Bright purple
+date:
+  hour-old: 183    # Bright snow
+  day-old: 182     # Bright snow
+  older: 145       # Muted but visible
+size:
+  none: 237        # Dark but visible
+  small: 110       # Light frost blue
+  medium: 75       # Bright blue
+  large: 111       # Vivid frost blue
+inode:
+  valid: 114       # Bright frost
+  invalid: 237     # Dark but visible
+links:
+  valid: 114       # Bright frost
+  invalid: 237     # Dark but visible
+tree-edge: 242     # Lighter gray
+git-status:
+  default: 242     # Lighter gray
+  unmodified: 242  # Lighter gray
+  ignored: 242     # Lighter gray
+  new-in-index: 114    # Bright frost
+  new-in-workdir: 114  # Bright frost
+  typechange: 179      # Bright yellow
+  deleted: 168         # Vibrant red
+  renamed: 114         # Bright frost
+  modified: 179        # Bright yellow
+  conflicted: 168      # Vibrant red

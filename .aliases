@@ -14,9 +14,9 @@ alias pbpaste='xsel --clipboard --output'
 alias pbp='pbpaste'
 alias cat='bat'
 alias http-serve='python -m http.server'
-alias ls='eza --git --icons=always'
-alias la='eza --git --icons=always -al'
-alias ll='eza --git --icons=always -l'
+alias ls='lsd --git --icon=always'
+alias la='lsd --git --icon=always -al'
+alias ll='lsd --git --icon=always -l'
 
 # Git
 alias workdone="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --author=elken"
