@@ -1,19 +1,30 @@
 [Added Associations]
+application/octet-stream=org.gnome.TextEditor.desktop;
+application/x-godot-resource=org.gnome.TextEditor.desktop;
+application/x-ms-dos-executable=protontricks-launch.desktop;
+application/xhtml+xml=org.mozilla.firefox.desktop;
+application/xml=org.gnome.TextEditor.desktop;
+application/zip=org.kde.ark.desktop;
+text/calendar=org.gnome.Calendar.desktop;
+text/html=org.mozilla.firefox.desktop;
+x-scheme-handler/http=org.mozilla.firefox.desktop;
+x-scheme-handler/https=org.mozilla.firefox.desktop;
+x-scheme-handler/mailto=org.mozilla.Thunderbird.desktop;
+x-scheme-handler/nxm=com.nexusmods.app.desktop;
 x-scheme-handler/sms=org.gnome.Shell.Extensions.GSConnect.desktop;
 x-scheme-handler/tel=org.gnome.Shell.Extensions.GSConnect.desktop;
-text/calendar=org.gnome.Calendar.desktop;
-x-scheme-handler/mailto=org.mozilla.Thunderbird.desktop;
-x-scheme-handler/http=org.mozilla.firefox.desktop;
-text/html=org.mozilla.firefox.desktop;
-application/xhtml+xml=org.mozilla.firefox.desktop;
-x-scheme-handler/https=org.mozilla.firefox.desktop;
 
 [Default Applications]
-x-scheme-handler/nxm=vortex-steamtinkerlaunch-dl.desktop
-x-scheme-handler/nxm-protocol=vortex-steamtinkerlaunch-dl.desktop
-text/calendar=org.gnome.Calendar.desktop
-x-scheme-handler/mailto=org.mozilla.Thunderbird.desktop
-x-scheme-handler/http=org.mozilla.firefox.desktop
-text/html=org.mozilla.firefox.desktop
+application/x-extension-burp=install4j_vrwqk8-BurpSuiteCommunity.desktop
+application/x-godot-resource=org.gnome.TextEditor.desktop
+application/x-ms-dos-executable=protontricks-launch.desktop
 application/xhtml+xml=org.mozilla.firefox.desktop
+application/xml=org.gnome.TextEditor.desktop
+application/zip=org.kde.ark.desktop;
+text/calendar=org.gnome.Calendar.desktop
+text/html=org.mozilla.firefox.desktop
+x-scheme-handler/http=org.mozilla.firefox.desktop
 x-scheme-handler/https=org.mozilla.firefox.desktop
+x-scheme-handler/mailto=org.mozilla.Thunderbird.desktop
+x-scheme-handler/nxm=com.nexusmods.app.desktop;
+x-scheme-handler/nxm-protocol=vortex-steamtinkerlaunch-dl.desktop

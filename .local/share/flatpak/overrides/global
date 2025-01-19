@@ -1,9 +1,11 @@
 [Context]
-filesystems=/usr/share/themes:ro;~/.local/share/themes:ro;~/.local/share/icons:ro;/usr/share/icons/:ro;~/.themes:ro;~/.icons:ro;xdg-config/gtk-3.0;~/.fonts;~/.local/share/fonts
+filesystems=~/.local/share/fonts;~/.fonts;xdg-config/gtk-3.0;~/.icons:ro;~/.themes:ro;/usr/share/icons/:ro;~/.local/share/icons:ro;~/.local/share/themes:ro;/usr/share/themes:ro
 
 [Environment]
-GTK_THEME=Orchis-Purple-Dark-Nord
+GTK_THEME=Adwaita:dark
 GTK_THEME_VARIANT=dark
 ICON_THEME=Nordzy-purple-dark
 XCURSOR_THEME=Nordzy-cursors
-XCURSOR_PATH=~/.local/share/icons
+XCURSOR_PATH=~/.icons
+ADW_DEBUG_COLOR_SCHEME=prefer-dark
+XCURSOR_SIZE=30
