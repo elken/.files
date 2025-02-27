@@ -35,6 +35,7 @@ export WEBKIT_DISABLE_COMPOSITING_MODE=1
 export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 export ZSH_AUTOSUGGEST_USE_ASYNC=1
+export RUBY_YJIT_ENABLE=1
 
 set ZLE_RPROPT_INDENT=1
 
@@ -47,11 +48,6 @@ setopt no_hist_verify
 for i in k.sh notifyosd.zsh; do
     [ -e $HOME/.config/zsh/$i ] && . $HOME/.config/zsh/$i
 done
-
-# To customize prompt, run `p10k configure` or edit ~/.config/zsh/p10k.zsh.
-[[ ! -f ~/.config/zsh/p10k.zsh ]] || source ~/.config/zsh/p10k.zsh
-
-[[ "$INSIDE_EMACS" = 'vterm' ]] && . ~/.config/zsh/vterm.zsh
 
 [ -e ~/.guix-profile ] && . ~/.guix-profile/etc/profile
 
@@ -81,8 +77,13 @@ if [[ -e ~/.config/zsh/autopair ]]; then
   autopair-init
 fi
 
-unalias p
+alias p > /dev/null 2> /dev/null && unalias p
 
 fpath+=("${ZDOTDIR:-$HOME}/completions")
 
 test -e $(which zoxide) && eval "$(zoxide init zsh)"
+
+[[ "$INSIDE_EMACS" = 'vterm' ]] && . ~/.config/zsh/vterm.zsh
+
+
+
