@@ -49,7 +49,7 @@ wezterm.on("trigger-helix-with-scrollback", function(window, pane)
   os.remove(name)
 end)
 
-config.enable_kitty_keyboard = true
+config.enable_kitty_keyboard = false
 
 config.debug_key_events = true
 
@@ -155,6 +155,21 @@ config.window_padding = {
 config.leader = { key = "t", mods = "ALT", timeout_milliseconds = 1000 }
 
 config.keys = {
+  {
+    key = "E",
+    mods = "CTRL|SHIFT",
+    action = act.PromptInputLine({
+      description = "Enter new name for tab",
+      action = wezterm.action_callback(function(window, _pane, line)
+        -- line will be `nil` if they hit escape without entering anything
+        -- An empty string if they just hit enter
+        -- Or the actual line of text they wrote
+        if line then
+          window:active_tab():set_title(line)
+        end
+      end),
+    }),
+  },
   {
     key = "e",
     mods = "LEADER",
