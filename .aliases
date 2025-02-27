@@ -8,9 +8,9 @@ alias winetricks32='WINEARCH=win32 WINEPREFIX=~/.wine32 winetricks'
 alias so='source'
 alias sprUp="curl -F 'sprunge=<-' http://sprunge.us"
 alias diff="/usr/bin/diff -rupN"
-alias pbcopy='xsel --clipboard --input'
+#alias pbcopy='xsel --clipboard --input'
 alias pbc='pbcopy'
-alias pbpaste='xsel --clipboard --output'
+#alias pbpaste='xsel --clipboard --output'
 alias pbp='pbpaste'
 alias cat='bat'
 alias http-serve='python -m http.server'

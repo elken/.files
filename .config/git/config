@@ -1,23 +1,25 @@
 [alias]
-	br = "branch"
-	cl = "clone"
-	co = "checkout"
+        br = "branch"
+        cl = "clone"
+        co = "checkout"
 
 [commit]
-	gpgSign = false
+        gpgSign = false
 
 [core]
-	pager = "delta"
-    attributesfile = ~/.config/git/attributes
-	excludesFiles = ~/.config/git/ignore
+        attributesfile = ~/.config/git/attributes
+        excludesFiles = ~/.config/git/ignore
 
 [delta]
-	line-numbers = true
-	side-by-side = true
-	syntax-theme = "Nord"
+        features = line-numbers
+        syntax-theme = "Nord"
+
+[delta "magit-delta"]
+       line-numbers = false
+       syntax-theme = "Gruvbox"
 
 [diff "org"]
-	xfuncname = "^(\\*+ +.*)$"
+        xfuncname = "^(\\*+ +.*)$"
 
 [diff "common-lisp"]
     xfuncname="^\\((def\\S+\\s+\\S+)"
@@ -26,26 +28,47 @@
     xfuncname="^\\((((def\\S+)|use-package)\\s+\\S+)"
 
 [github]
-	user = "elken"
+        user = "elken"
 
 [init]
-	defaultBranch = "master"
-	templatedir = "/home/elken/.config/git/templates"
-
-[interactive]
-	diffFilter = "delta --color-only"
+        defaultBranch = "master"
+        templatedir = "~/.config/git/templates"
 
 [tag]
-	gpgSign = false
+        gpgSign = false
+        sort = version:refname
 
 [url "https://invent.kde.org/"]
-	insteadOf = "kde:"
-	pushInsteadOf = "kde:"
+        insteadOf = "kde:"
+        pushInsteadOf = "kde:"
 
 [user]
-	email = "me@elken.dev"
-	name = "Ellis Kenyo"
-	signingKey = "298BE5D997EBAA02"
+        email = "me@elken.dev"
+        name = "Ellis Kenyo"
+        signingKey = "298BE5D997EBAA02"
 
-[includeIf "gitdir:~/build/juxt/**/*.git"]
-	path = ~/build/juxt/.gitconfig
+[includeIf "gitdir:~/code/moj/**/*.git"]
+        path = ~/code/moj/.gitconfig
+[credential]
+        helper = /usr/local/share/gcm-core/git-credential-manager
+[credential "https://dev.azure.com"]
+        useHttpPath = true
+[column]
+        ui = auto
+[branch]
+        sort = -committerdate
+[diff]
+        algorithm = histogram
+        colorMoved = plain
+        mnemonicPrefix = true
+        renames = true
+[push]
+        default = simple
+        autoSetupRemote = true
+        followTags = true
+[fetch]
+        prune = true
+        pruneTags = true
+        all = true
+[merge]
+        conflictstyle = zdiff3
