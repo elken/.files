@@ -46,9 +46,6 @@ fpath=(
 )
 
 if [[ "$INSIDE_EMACS" != 'vterm' ]]; then
-  export VISUAL='nvim'
-  export EDITOR='nvim'
-
   if [[ "$OSTYPE" == darwin* ]]; then
       path=(
           /usr/local/opt/coreutils/libexec/gnubin

@@ -36,6 +36,8 @@ export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 export ZSH_AUTOSUGGEST_USE_ASYNC=1
 export RUBY_YJIT_ENABLE=1
+export CFLAGS="$CFLAGS -I$(brew --prefix libmps)/include"
+export LDFLAGS="$LDFLAGS -L$(brew --prefix libmps)/lib"
 
 set ZLE_RPROPT_INDENT=1
 
