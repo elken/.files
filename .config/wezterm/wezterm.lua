@@ -50,7 +50,10 @@ wezterm.on("trigger-helix-with-scrollback", function(window, pane)
 end)
 
 config.enable_kitty_keyboard = false
-
+config.allow_win32_input_mode = false
+config.bypass_mouse_reporting_modifiers = "SHIFT"
+config.send_composed_key_when_left_alt_is_pressed = false
+config.send_composed_key_when_right_alt_is_pressed = false
 config.debug_key_events = true
 
 config.colors = wezterm.color.load_scheme(wezterm.home_dir .. "/.config/wezterm/colors/nordfox.toml")
