@@ -66,7 +66,7 @@ export NVM_DIR="$HOME/.nvm"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+test -e "/home/linuxbrew/.linuxbrew/bin/brew" && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 # export PATH="$PATH:$HOME/.rvm/bin"
@@ -86,6 +86,3 @@ fpath+=("${ZDOTDIR:-$HOME}/completions")
 test -e $(which zoxide) && eval "$(zoxide init zsh)"
 
 [[ "$INSIDE_EMACS" = 'vterm' ]] && . ~/.config/zsh/vterm.zsh
-
-
-
