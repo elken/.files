@@ -15,17 +15,17 @@
         syntax-theme = "Nord"
 
 [delta "magit-delta"]
-       line-numbers = false
-       syntax-theme = "Gruvbox"
+        line-numbers = false
+        syntax-theme = "Gruvbox"
 
 [diff "org"]
         xfuncname = "^(\\*+ +.*)$"
 
 [diff "common-lisp"]
-    xfuncname="^\\((def\\S+\\s+\\S+)"
+        xfuncname="^\\((def\\S+\\s+\\S+)"
 
 [diff "elisp"]
-    xfuncname="^\\((((def\\S+)|use-package)\\s+\\S+)"
+        xfuncname = ^\\([^[:space:]]*(def|use-package)[^[:space:]]+[[:space:]]+([^()[:space:]]+)
 
 [github]
         user = "elken"
@@ -72,3 +72,7 @@
         all = true
 [merge]
         conflictstyle = zdiff3
+[pack]
+        threads = 0
+        windowMemory = 5g
+        packSizeLimit = 2g
