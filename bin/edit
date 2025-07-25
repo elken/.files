@@ -1,18 +1,23 @@
 #!/usr/bin/env zsh
 
 if [ "$INSIDE_EMACS" = 'vterm' ]; then
-        . "$HOME/.config/zsh/vterm.zsh"
+    . "$HOME/.config/zsh/vterm.zsh"
 
-        find_file "$@"
+    find_file "$@"
 else
-        if [ -z "$(toe | grep xterm-emacs)" ]; then
-                echo "xterm-emacs|xterm with 24-bit direct color mode for Emacs,
+    if [ -z "$(toe | grep xterm-emacs)" ]; then
+        echo "xterm-emacs|xterm with 24-bit direct color mode for Emacs,
   use=xterm-256color,
   setb24=\E[48\:2\:\:%p1%{65536}%/%d\:%p1%{256}%/%{255}%&\
      %d\:%p1%{255}%&%dm,
   setf24=\E[38\:2\:\:%p1%{65536}%/%d\:%p1%{256}%/%{255}%&\
-     %d\:%p1%{255}%&%dm," >> /tmp/terminfo-custom.src
-		tic -x -o ~/.terminfo /tmp/terminfo-custom.src
-        fi
-        TERM=xterm-emacs emacsclient -t -nw "$@"
+     %d\:%p1%{255}%&%dm," >>/tmp/terminfo-custom.src
+        tic -x -o ~/.terminfo /tmp/terminfo-custom.src
+    fi
+
+    if [ -z "$(lsof -c Emacs | grep tui | tr -s " " | cut -d' ' -f8)" ]; then
+        emacs --daemon=tui
+    fi
+
+    TERM=xterm-emacs emacsclient -s tui -t -nw "$@"
 fi
