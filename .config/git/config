@@ -49,8 +49,6 @@
 
 [includeIf "gitdir:~/code/moj/**/*.git"]
         path = ~/code/moj/.gitconfig
-[credential]
-        helper = /usr/local/share/gcm-core/git-credential-manager
 [credential "https://dev.azure.com"]
         useHttpPath = true
 [column]
