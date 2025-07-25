@@ -84,5 +84,6 @@ alias p > /dev/null 2> /dev/null && unalias p
 fpath+=("${ZDOTDIR:-$HOME}/completions")
 
 test -e $(which zoxide) && eval "$(zoxide init zsh)"
+test -e $(which mise) && eval "$(mise activate zsh)"
 
 [[ "$INSIDE_EMACS" = 'vterm' ]] && . ~/.config/zsh/vterm.zsh
