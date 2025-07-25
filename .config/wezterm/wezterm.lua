@@ -49,7 +49,7 @@ wezterm.on("trigger-helix-with-scrollback", function(window, pane)
   os.remove(name)
 end)
 
-config.enable_kitty_keyboard = false
+config.enable_kitty_keyboard = true
 config.allow_win32_input_mode = false
 config.bypass_mouse_reporting_modifiers = "SHIFT"
 config.send_composed_key_when_left_alt_is_pressed = false
