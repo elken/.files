@@ -21,7 +21,7 @@ config = { diagnostics = true, formatting = false }
 name = "elixir"
 file-types = ["ex", "exs", "html.heex"]
 auto-format = true
-diagnostic-severity = "Hint"
+diagnostic-severity = "hint"
 
 [[language]]
 name = "heex"
