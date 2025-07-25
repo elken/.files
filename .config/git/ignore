@@ -177,3 +177,5 @@ app/Console/Commands/Scratchpad.php
 .git
 .clj-kondo/.cache
 .cpcache
+
+.overmind.sock
