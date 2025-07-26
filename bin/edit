@@ -15,7 +15,7 @@ else
         tic -x -o ~/.terminfo /tmp/terminfo-custom.src
     fi
 
-    if [ -z "$(lsof -c Emacs | grep tui | tr -s " " | cut -d' ' -f8)" ]; then
+    if [ -z "$(lsof -c emacs -c Emacs | grep tui | tr -s " " | cut -d' ' -f8)" ]; then
         emacs --daemon=tui
     fi
 
