@@ -48,6 +48,8 @@ fpath=(
 if [[ "$INSIDE_EMACS" != 'vterm' ]]; then
   if [[ "$OSTYPE" == darwin* ]]; then
       path=(
+          /Applications/Emacs.app/Contents
+          /Applications/Emacs.app/Contents/bin
           /usr/local/opt/coreutils/libexec/gnubin
           /opt/homebrew/opt/coreutils/libexec/gnubin
           /opt/homebrew/opt/openjdk/bin
@@ -57,10 +59,12 @@ if [[ "$INSIDE_EMACS" != 'vterm' ]]; then
       )
       export GPG_TTY=$(tty)
       export DYLD_LIBRARY_PATH="$(brew --prefix)/lib:$DYLD_LIBRARY_PATH"
+      export JAVA_HOME="/opt/homebrew/opt/openjdk@11/libexec/openjdk.jdk/Contents/Home"
   fi
 
   # Set the list of directories that Zsh searches for programs.
   path=(
+    $HOME/.ghcup/bin
     $HOME/.local/share/nvim/mason/bin
     /home/linuxbrew/.linuxbrew/lib/ruby/gems/3.3.0/bin
     $HOME/.babashka/bbin/bin
