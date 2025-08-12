@@ -17,6 +17,13 @@
 # options using:
 #     config nu --doc | nu-highlight | less -R
 
+alias make = make $"-j(sys cpu | length | $in + 1)" $"-l(sys cpu | length)"
+alias c = clear
+alias q = exit
+def ll [] { ls -al | sort-by type name -i | grid -c -i }
+
+alias yl = lazygit --work-tree ~ --git-dir ~/.local/share/yadm/repo.git
+
 # Get Kubernetes resources with structured output
 #
 # A wrapper around `kubectl get` that returns structured data parsed from JSON.
@@ -29,6 +36,8 @@
 #   kget deployments -A                 # Get deployments in all namespaces
 #   kget services -l app=myapp          # Get services with label selector
 #   kget secrets --raw                  # Get full JSON structure
+
+$env.config.show_banner = false
 
 def kget [
     resource: string                    # The Kubernetes resource type (pods, services, etc.)
@@ -82,3 +91,10 @@ def kget [
         $row
     }
 }
+
+source ~/.zoxide.nu
+use ~/.config/nushell/scripts/mise.gen.nu
+
+$env.config.hooks.pre_prompt = (
+    $env.config.hooks.env_change.PWD | append (source ~/.config/nushell/nu_scripts/nu-hooks/nu-hooks/direnv/config.nu)
+)
