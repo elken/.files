@@ -93,8 +93,26 @@ def kget [
 }
 
 source ~/.zoxide.nu
+
+# Setup zoxide completions
+def "nu-complete zoxide path" [context: string] {
+    let parts = $context | split row " " | skip 1
+    {
+      options: {
+        sort: false,
+        completion_algorithm: substring,
+        case_sensitive: false,
+      },
+      completions: (^zoxide query --list --exclude $env.PWD -- ...$parts | lines),
+    }
+  }
+
+def --env --wrapped z [...rest: string@"nu-complete zoxide path"] {
+  __zoxide_z ...$rest
+}
+
 use ~/.config/nushell/scripts/mise.gen.nu
 
 $env.config.hooks.pre_prompt = (
-    $env.config.hooks.env_change.PWD | append (source ~/.config/nushell/nu_scripts/nu-hooks/nu-hooks/direnv/config.nu)
+    $env.config.hooks.pre_prompt | append (source ~/.config/nushell/nu_scripts/nu-hooks/nu-hooks/direnv/config.nu)
 )
