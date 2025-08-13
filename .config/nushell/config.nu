@@ -17,10 +17,24 @@
 # options using:
 #     config nu --doc | nu-highlight | less -R
 
+$env.ENV_CONVERSIONS = $env.ENV_CONVERSIONS | merge {
+    "PATH": {
+        from_string: {|s| $s | split row (char esep) | path expand --no-symlink }
+        to_string: {|v| $v | path expand --no-symlink | str join (char esep) }
+    }
+}
+
+zoxide init nushell | save -f ~/.zoxide.nu
+mise activate nu | save ~/.config/nushell/scripts/mise.gen.nu -f
+
+use ~/.config/nushell/scripts/mise.gen.nu
+source ~/.zoxide.nu
+
 alias make = make $"-j(sys cpu | length | $in + 1)" $"-l(sys cpu | length)"
 alias c = clear
 alias q = exit
 def ll [] { ls -al | sort-by type name -i | grid -c -i }
+def mkdcd [] { mkdir $in and cd $in }
 
 alias yl = lazygit --work-tree ~ --git-dir ~/.local/share/yadm/repo.git
 
@@ -92,8 +106,6 @@ def kget [
     }
 }
 
-source ~/.zoxide.nu
-
 # Setup zoxide completions
 def "nu-complete zoxide path" [context: string] {
     let parts = $context | split row " " | skip 1
@@ -111,7 +123,6 @@ def --env --wrapped z [...rest: string@"nu-complete zoxide path"] {
   __zoxide_z ...$rest
 }
 
-use ~/.config/nushell/scripts/mise.gen.nu
 
 $env.config.hooks.pre_prompt = (
     $env.config.hooks.pre_prompt | append (source ~/.config/nushell/nu_scripts/nu-hooks/nu-hooks/direnv/config.nu)
