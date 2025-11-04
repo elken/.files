@@ -28,3 +28,5 @@ x-scheme-handler/https=org.mozilla.firefox.desktop
 x-scheme-handler/mailto=org.mozilla.Thunderbird.desktop
 x-scheme-handler/nxm=com.nexusmods.app.desktop;
 x-scheme-handler/nxm-protocol=vortex-steamtinkerlaunch-dl.desktop
+application/x-rpm=/usr/share/applications/nobara-rpm-installer.desktop
+application/x-src+rpm=/usr/share/applications/org.kde.ark.desktop
