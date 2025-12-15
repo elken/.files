@@ -21,7 +21,7 @@ wezterm.on("trigger-helix-with-scrollback", function(window, pane)
   -- Retrieve the text from the pane
   local text = pane:get_lines_as_text(pane:get_dimensions().scrollback_rows)
 
-  -- Create a temporary file to pass to helix
+  -- Create a temporary file to pass to editor
   local name = os.tmpname()
   local f = io.open(name, "w+")
 
@@ -222,6 +222,7 @@ config.keys = {
   { key = "j", mods = "LEADER", action = wezterm.action({ ActivatePaneDirection = "Down" }) },
   { key = "k", mods = "LEADER", action = wezterm.action({ ActivatePaneDirection = "Up" }) },
   { key = "l", mods = "LEADER", action = wezterm.action({ ActivatePaneDirection = "Right" }) },
+  {key="Enter", mods="SHIFT", action=wezterm.action{SendString="\x1b\r"}},
 }
 
 config.mouse_bindings = {
