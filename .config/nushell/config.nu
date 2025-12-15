@@ -17,6 +17,9 @@
 # options using:
 #     config nu --doc | nu-highlight | less -R
 
+# Needed for vterm & exec-path-from-shell to play nice. It looks like
+# it converts the path to a string when the login shell is not nu but
+# vterm shell is.
 $env.ENV_CONVERSIONS = $env.ENV_CONVERSIONS | merge {
     "PATH": {
         from_string: {|s| $s | split row (char esep) | path expand --no-symlink }
@@ -24,16 +27,20 @@ $env.ENV_CONVERSIONS = $env.ENV_CONVERSIONS | merge {
     }
 }
 
+# Disable the annoying nag
 $env.config.show_banner = false
 
+# Direnv
 $env.config.hooks.pre_prompt = (
     $env.config.hooks.pre_prompt | append (source ~/.config/nushell/nu_scripts/nu-hooks/nu-hooks/direnv/config.nu)
 )
 
+# Mise
 if not ("~/.config/nushell/scripts/mise.gen.nu" | path exists) {
     ~/code/mise/target/release/mise activate nu | save ~/.config/nushell/scripts/mise.gen.nu -f
 }
 
+# Zoxide
 if not ("~/.zoxide.nu" | path exists) {
     zoxide init nushell | save -f ~/.zoxide.nu
 }
