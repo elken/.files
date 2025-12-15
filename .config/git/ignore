@@ -179,3 +179,5 @@ app/Console/Commands/Scratchpad.php
 .cpcache
 
 .overmind.sock
+
+AGENTS.md
