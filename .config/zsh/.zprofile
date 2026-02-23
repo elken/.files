@@ -1,9 +1,6 @@
 #
 # Executes commands at login pre-zshrc.
 #
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
 
 #
 # Browser
@@ -36,11 +33,6 @@ fi
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path
 
-# Set the the list of directories that cd searches.
-# cdpath=(
-#   $cdpath
-# )
-
 fpath=(
   $fpath
 )
@@ -57,9 +49,11 @@ if [[ "$INSIDE_EMACS" != 'vterm' ]]; then
           /opt/homebrew/bin
           $path
       )
-      export GPG_TTY=$(tty)
-      export DYLD_LIBRARY_PATH="$(brew --prefix)/lib:$DYLD_LIBRARY_PATH"
+      # Hardcoded to avoid brew --prefix subprocess at every login
+      export DYLD_LIBRARY_PATH="/opt/homebrew/lib:$DYLD_LIBRARY_PATH"
       export JAVA_HOME="/opt/homebrew/opt/openjdk@11/libexec/openjdk.jdk/Contents/Home"
+      export CFLAGS="$CFLAGS -I/opt/homebrew/opt/libmps/include"
+      export LDFLAGS="$LDFLAGS -L/opt/homebrew/opt/libmps/lib"
   fi
 
   # Set the list of directories that Zsh searches for programs.
@@ -79,25 +73,39 @@ if [[ "$INSIDE_EMACS" != 'vterm' ]]; then
     $HOME/.luarocks/bin
     $HOME/build/phpactor/bin
     $HOME/go/bin
+    $HOME/.local/share/mise/shims
     /usr/local/{bin,sbin}
     /usr/bin
     $path
   )
 
-
 fi
-  export GPG_TTY=$(tty)
+export GPG_TTY=$(tty)
+() {
+  local kc_dir="$HOME/.keychain"
+  local kc_env="$kc_dir/${HOST}-sh"
+  [[ -f "$kc_env" ]] && source "$kc_env"
+  ssh-add -l &>/dev/null
+  if (( $? != 0 )); then
+    # Prune stale files from old hostnames before re-initialising
+    local f
+    for f in "$kc_dir"/*(N); do
+      [[ "$f" != "$kc_dir/${HOST}"* ]] && rm -f "$f"
+    done
+    eval "$(keychain --eval --quiet --ssh-allow-gpg ~/.ssh/git)"
+  fi
+}
+
+export NVIM_TUI_ENABLE_TRUE_COLOR=1
+export RUBY_YJIT_ENABLE=1
+export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
+
 #
 # Less
 #
 
-# Set the default Less options.
-# Mouse-wheel scrolling has been disabled by -X (disable screen clearing).
-# Remove -X and -F (exit if the content fits on one screen) to enable it.
 export LESS='-F -g -i -M -R -S -w -X -z-4'
 
-# Set the Less input preprocessor.
-# Try both `lesspipe` and `lesspipe.sh` as either might exist on a system.
 if (( $#commands[(i)lesspipe(|.sh)] )); then
   export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
 fi
@@ -115,14 +123,3 @@ TMPPREFIX="${TMPDIR%/}/zsh"
 if [[ ! -d "$TMPPREFIX" ]]; then
   mkdir -p "$TMPPREFIX"
 fi
-
-function au(){
-    AURA="$(aura "$@")"
-
-    if echo "$AURA" | grep -q '^aura >>= .*You have to use `.*sudo.*` for that.*$'
-    then
-        sudo aura "$@"
-    else
-        echo "$AURA"
-    fi
-}

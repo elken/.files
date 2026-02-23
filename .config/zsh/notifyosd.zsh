@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+zmodload zsh/datetime
+
 # commands to ignore
 cmdignore=(ncdu htop tmux top vim vimserv nvim emacs e v)
 
@@ -13,7 +15,7 @@ function notifyosd-precmd() {
         return
     else
         if [ ! -z "$cmd" ]; then
-            cmd_end=`date +%s`
+            cmd_end=$EPOCHSECONDS
             ((cmd_secs=$cmd_end - $cmd_start))
         fi
         if [ $retval -gt 0 ]; then
@@ -46,7 +48,7 @@ precmd_functions+=( notifyosd-precmd )
 function notifyosd-preexec() {
     cmd=$1
     cmd_basename=${${cmd:s/sudo //}[(ws: :)1]}
-    cmd_start=`date +%s`
+    cmd_start=$EPOCHSECONDS
 }
 
 # make sure this plays nicely with any existing preexec

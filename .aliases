@@ -1,6 +1,7 @@
 alias make='make -j`expr $(nproc) + 1` -l$(nproc)'
 alias c='clear'
 alias q='exit'
+alias g='git'
 alias ff='fzf'
 alias vf='vim $(fzf)'
 alias wine32='WINEARCH=win32 WINEPREFIX=~/.wine32 wine'
