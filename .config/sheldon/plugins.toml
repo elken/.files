@@ -1,0 +1,133 @@
+shell = "zsh"
+
+[templates]
+defer = "{{ hooks?.pre | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks?.post | nl }}"
+
+# ── synchronous ────────────────────────────────────────────────────────────────
+
+[plugins.zsh-defer]
+github = "romkatv/zsh-defer"
+
+[plugins.pure]
+github = "sindresorhus/pure"
+use = ["async.zsh", "pure.zsh"]
+
+# clone only — dircolors generation handled in .zshrc cache block
+[plugins.nord-dircolors]
+github = "nordtheme/dircolors"
+apply = []
+
+# ── fpath (completions, no sourcing) ──────────────────────────────────────────
+
+[plugins.zsh-completions]
+github = "zsh-users/zsh-completions"
+apply = ["fpath"]
+
+[plugins.docker-completion]
+remote = "https://raw.githubusercontent.com/docker/cli/master/contrib/completion/zsh/_docker"
+apply = ["fpath"]
+
+# ── deferred ──────────────────────────────────────────────────────────────────
+
+[plugins.fzf-tab]
+github = "Aloxaf/fzf-tab"
+apply = ["defer"]
+
+[plugins.zsh-autosuggestions]
+github = "zsh-users/zsh-autosuggestions"
+apply = ["defer"]
+
+[plugins.zsh-history-substring-search]
+github = "zsh-users/zsh-history-substring-search"
+apply = ["defer"]
+
+[plugins.zsh-history-substring-search.hooks]
+post = '''
+  bindkey "^[[A" history-substring-search-up
+  bindkey "^[OA" history-substring-search-up
+  bindkey "^[[B" history-substring-search-down
+  bindkey "^[OB" history-substring-search-down
+'''
+
+[plugins.zsh-autopair]
+github = "hlissner/zsh-autopair"
+apply = ["defer"]
+
+[plugins.zsh-you-should-use]
+github = "MichaelAquilina/zsh-you-should-use"
+apply = ["defer"]
+
+[plugins.fast-syntax-highlighting]
+github = "zdharma-continuum/fast-syntax-highlighting"
+apply = ["defer"]
+
+[plugins.hhighlighter]
+github = "paoloantinori/hhighlighter"
+use = ["h.sh"]
+apply = ["defer"]
+
+[plugins.gitignore]
+github = "voronkovich/gitignore.plugin.zsh"
+apply = ["defer"]
+
+[plugins.zsh-shift-select]
+github = "jirutka/zsh-shift-select"
+apply = ["defer"]
+
+[plugins.zsh-colored-man-pages]
+github = "ael-code/zsh-colored-man-pages"
+apply = ["defer"]
+
+[plugins.safe-paste]
+github = "oz/safe-paste"
+apply = ["defer"]
+
+[plugins.jq-zsh-plugin]
+github = "reegnz/jq-zsh-plugin"
+apply = ["defer"]
+
+[plugins.zsh-extract]
+github = "le0me55i/zsh-extract"
+apply = ["defer"]
+
+[plugins.zsh-bash-completions-fallback]
+github = "3v1n0/zsh-bash-completions-fallback"
+apply = ["defer"]
+
+# ── OMZ snippets (share one ohmyzsh clone) ────────────────────────────────────
+
+[plugins.omzp-rust]
+github = "ohmyzsh/ohmyzsh"
+dir = "plugins/rust"
+use = ["*.plugin.zsh"]
+apply = ["defer"]
+
+[plugins.omzp-golang]
+github = "ohmyzsh/ohmyzsh"
+dir = "plugins/golang"
+use = ["*.plugin.zsh"]
+apply = ["defer"]
+
+[plugins.omzp-yarn]
+github = "ohmyzsh/ohmyzsh"
+dir = "plugins/yarn"
+use = ["*.plugin.zsh"]
+apply = ["defer"]
+
+[plugins.omzp-flutter]
+github = "ohmyzsh/ohmyzsh"
+dir = "plugins/flutter"
+use = ["*.plugin.zsh"]
+apply = ["defer"]
+
+[plugins.omzp-dotnet]
+github = "ohmyzsh/ohmyzsh"
+dir = "plugins/dotnet"
+use = ["*.plugin.zsh"]
+apply = ["defer"]
+
+[plugins.omzp-kubectl]
+github = "ohmyzsh/ohmyzsh"
+dir = "plugins/kubectl"
+use = ["*.plugin.zsh"]
+apply = ["defer"]
