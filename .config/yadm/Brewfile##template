@@ -1,0 +1,208 @@
+tap "borkdude/brew"
+tap "clojure/tools"
+tap "hashicorp/tap"
+tap "jstkdng/programs"
+tap "k1low/tap"
+tap "ministryofjustice/cloud-platform-tap"
+
+{% if yadm.os == "Darwin" %}
+tap "d12frosted/emacs-plus"
+tap "nikitabobko/tap"
+tap "railwaycat/emacsmacport"
+tap "ungive/media-control"
+tap "xenodium/rinku"
+{% endif %}
+
+brew "sheldon"
+
+brew "zsh"
+brew "coreutils"
+brew "keychain"
+brew "direnv"
+brew "make"
+brew "wget"
+brew "trash", link: true
+{% if yadm.os == "Darwin" %}
+brew "terminal-notifier"
+brew "pinentry-mac"
+brew "xcbeautify"
+{% endif %}
+
+brew "gnupg"
+brew "gpgme"
+
+brew "fzf"
+brew "fd"
+brew "ripgrep"
+brew "bat"
+brew "zoxide"
+brew "lsd"
+brew "tree"
+brew "ncdu"
+
+brew "mise"
+brew "rbenv"
+brew "ruby-build"
+
+brew "git"
+brew "gh"
+brew "git-delta"
+brew "git-filter-repo"
+brew "gitleaks"
+brew "lazygit"
+brew "hub"
+brew "act"
+
+brew "neovim"
+brew "helix"
+{% if yadm.os == "Darwin" %}
+brew "d12frosted/emacs-plus/emacs-plus@31", args: ["with-compress-install", "with-imagemagick", "with-mailutils", "with-xwidgets"]
+{% endif %}
+
+brew "tmux"
+brew "zellij"
+brew "overmind"
+brew "gum"
+
+brew "nushell"
+
+brew "go"
+brew "rust"
+brew "zig"
+brew "odin"
+brew "elixir"
+brew "ghcup"
+brew "minimal-racket"
+brew "node"
+brew "uv"
+brew "pipx"
+
+brew "openjdk@11"
+brew "maven"
+brew "clojure/tools/clojure"
+brew "borkdude/brew/babashka"
+brew "clojure-lsp"
+
+brew "php"
+brew "composer"
+
+brew "elixir-ls"
+brew "typescript-language-server"
+brew "yaml-language-server"
+brew "helm-ls"
+brew "terraform-ls"
+brew "hlint"
+brew "yamllint"
+
+brew "awscli"
+brew "aws-cdk"
+brew "flyctl"
+brew "kubernetes-cli"
+brew "helm"
+brew "hashicorp/tap/terraform"
+brew "tflint"
+brew "podman"
+brew "docker-compose"
+brew "lazydocker"
+brew "mkcert"
+brew "k1low/tap/octocov"
+brew "ministryofjustice/cloud-platform-tap/cloud-platform-cli"
+
+brew "cmake"
+brew "ninja"
+brew "autoconf"
+brew "automake"
+brew "gcc"
+brew "mold"
+brew "lld"
+brew "libgccjit"
+brew "libmps"
+brew "emscripten"
+brew "luarocks"
+brew "doctest"
+brew "cogapp"
+
+brew "ffmpegthumbnailer"
+brew "imagemagick"
+brew "chafa"
+brew "media-info"
+brew "vips"
+brew "mupdf"
+brew "pandoc"
+brew "tectonic"
+brew "pdfpc"
+brew "poppler"
+{% if yadm.os == "Darwin" %}
+brew "ungive/media-control/media-control"
+brew "xenodium/rinku/rinku"
+{% endif %}
+{% if yadm.os == "Linux" %}
+brew "jstkdng/programs/ueberzugpp"
+{% endif %}
+
+brew "isync"
+brew "enchant"
+
+brew "nmap"
+brew "netcat"
+brew "massdns"
+brew "trufflehog"
+brew "snyk-cli"
+brew "clamav"
+brew "ghidra"
+brew "gdb"
+
+brew "jq"
+brew "yq"
+brew "miller"
+brew "ack"
+
+brew "postgresql@14"
+brew "redis", restart_service: :changed
+brew "nginx", restart_service: :changed
+brew "caddy"
+
+brew "bitwarden-cli"
+brew "exercism"
+brew "cloc"
+brew "graphviz"
+brew "wrkflw"
+brew "ranger"
+brew "pure"
+brew "typst", args: ["HEAD"]
+brew "yarn"
+brew "yadm"
+
+go "github.com/projectdiscovery/alterx/cmd/alterx"
+go "github.com/ffuf/ffuf/v2"
+go "github.com/lc/gau/v2/cmd/gau"
+go "github.com/projectdiscovery/httpx/cmd/httpx"
+go "github.com/projectdiscovery/naabu/v2/cmd/naabu"
+go "github.com/projectdiscovery/nuclei/v2/cmd/nuclei"
+go "github.com/d3mondev/puredns/v2"
+go "github.com/projectdiscovery/subfinder/v2/cmd/subfinder"
+
+cargo "kubediff"
+
+{% if yadm.os == "Darwin" %}
+cask "font-fontawesome"
+cask "font-merriweather"
+cask "font-monaspace"
+cask "font-symbols-only-nerd-font"
+
+cask "android-platform-tools"
+cask "bitwarden"
+cask "blackhole-2ch"
+cask "bruno"
+cask "chromedriver"
+cask "docker-desktop"
+cask "finicky"
+cask "ghidra"
+cask "gimp"
+cask "git-credential-manager"
+cask "inkscape"
+cask "neovide-app"
+cask "obs"
+cask "openmtp"
+cask "wezterm"
+{% endif %}
