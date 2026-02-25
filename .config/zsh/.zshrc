@@ -3,7 +3,7 @@ export ZSH_AUTOSUGGEST_USE_ASYNC=1
 
 # sheldon — cached source, regenerate when plugins.toml changes
 () {
-  local f="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/sheldon.zsh"
+  local f="${XDG_CACHE_HOME:-$HOME/.cache}/sheldon.zsh"
   [[ -f "$f" && "$f" -nt ~/.config/sheldon/plugins.toml ]] || sheldon source >| "$f"
   source "$f"
 }

@@ -74,6 +74,8 @@ if [[ "$INSIDE_EMACS" != 'vterm' ]]; then
     $HOME/build/phpactor/bin
     $HOME/go/bin
     $HOME/.local/share/mise/shims
+    /home/linuxbrew/.linuxbrew/bin
+    /home/linuxbrew/.linuxbrew/sbin
     /usr/local/{bin,sbin}
     /usr/bin
     $path
