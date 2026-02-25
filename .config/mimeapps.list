@@ -1,32 +1,3 @@
-[Added Associations]
-application/octet-stream=org.gnome.TextEditor.desktop;
-application/x-godot-resource=org.gnome.TextEditor.desktop;
-application/x-ms-dos-executable=protontricks-launch.desktop;
-application/xhtml+xml=org.mozilla.firefox.desktop;
-application/xml=org.gnome.TextEditor.desktop;
-application/zip=org.kde.ark.desktop;
-text/calendar=org.gnome.Calendar.desktop;
-text/html=org.mozilla.firefox.desktop;
-x-scheme-handler/http=org.mozilla.firefox.desktop;
-x-scheme-handler/https=org.mozilla.firefox.desktop;
-x-scheme-handler/mailto=org.mozilla.Thunderbird.desktop;
-x-scheme-handler/nxm=com.nexusmods.app.desktop;
-x-scheme-handler/sms=org.gnome.Shell.Extensions.GSConnect.desktop;
-x-scheme-handler/tel=org.gnome.Shell.Extensions.GSConnect.desktop;
 
 [Default Applications]
-application/x-extension-burp=install4j_vrwqk8-BurpSuiteCommunity.desktop
-application/x-godot-resource=org.gnome.TextEditor.desktop
-application/x-ms-dos-executable=protontricks-launch.desktop
-application/xhtml+xml=org.mozilla.firefox.desktop
-application/xml=org.gnome.TextEditor.desktop
-application/zip=org.kde.ark.desktop;
-text/calendar=org.gnome.Calendar.desktop
-text/html=org.mozilla.firefox.desktop
-x-scheme-handler/http=org.mozilla.firefox.desktop
-x-scheme-handler/https=org.mozilla.firefox.desktop
-x-scheme-handler/mailto=org.mozilla.Thunderbird.desktop
-x-scheme-handler/nxm=com.nexusmods.app.desktop;
-x-scheme-handler/nxm-protocol=vortex-steamtinkerlaunch-dl.desktop
-application/x-rpm=/usr/share/applications/nobara-rpm-installer.desktop
-application/x-src+rpm=/usr/share/applications/org.kde.ark.desktop
+x-scheme-handler/deadlock-mod-manager=deadlock-mod-manager-handler.desktop
