@@ -37,16 +37,20 @@ apply = ["defer"]
 github = "zsh-users/zsh-autosuggestions"
 apply = ["defer"]
 
+[plugins.fast-syntax-highlighting]
+github = "zdharma-continuum/fast-syntax-highlighting"
+apply = ["defer"]
+
 [plugins.zsh-history-substring-search]
 github = "zsh-users/zsh-history-substring-search"
 apply = ["defer"]
 
 [plugins.zsh-history-substring-search.hooks]
 post = '''
-  bindkey "^[[A" history-substring-search-up
-  bindkey "^[OA" history-substring-search-up
-  bindkey "^[[B" history-substring-search-down
-  bindkey "^[OB" history-substring-search-down
+  zsh-defer bindkey "^[[A" history-substring-search-up
+  zsh-defer bindkey "^[OA" history-substring-search-up
+  zsh-defer bindkey "^[[B" history-substring-search-down
+  zsh-defer bindkey "^[OB" history-substring-search-down
 '''
 
 [plugins.zsh-autopair]
@@ -55,10 +59,6 @@ apply = ["defer"]
 
 [plugins.zsh-you-should-use]
 github = "MichaelAquilina/zsh-you-should-use"
-apply = ["defer"]
-
-[plugins.fast-syntax-highlighting]
-github = "zdharma-continuum/fast-syntax-highlighting"
 apply = ["defer"]
 
 [plugins.hhighlighter]
